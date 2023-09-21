@@ -9,6 +9,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private MovementBehaviour movementBehaviour;
     [SerializeField] private AttackBehaviour attackBehaviour;
 
+    public bool canRepairItem;
+    public bool canChangeFloor;
+
+    public float life;
+
     private void Start()
     {
         // Subscribe to input events
