@@ -6,20 +6,22 @@ public class AttackBehaviour : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
-    public bool IsAttacking { get; private set; } = false;
+    public bool CanAttack { get; private set; } = true;
 
 
     public void Attack()
     {
-        if(!IsAttacking)
-        {
-            IsAttacking = true;
-            animator.Play("Attack");
-        }
+        // Avoid attack logic if can't do it
+        if (!CanAttack) return;
+
+        CanAttack = false;
+
+        animator.SetBool("attack", true);
     }
 
     public void EndAttack()
     {
-        IsAttacking = false;
+        CanAttack = true;
+        animator.SetBool("attack", false);
     }
 }

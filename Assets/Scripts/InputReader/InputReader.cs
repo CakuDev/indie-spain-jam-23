@@ -35,11 +35,19 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         _gameInput.UI.Enable();
     }
 
+    // Player events
     public event Action<Vector2> MoveEvent;
     public event Action InteractEvent;
+    public event Action AttackEvent;
 
+    // UI events
     public event Action PauseEvent;
     public event Action ResumeEvent;
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        MoveEvent?.Invoke(context.ReadValue<Vector2>());
+    }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -49,10 +57,15 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         }
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnAttack(InputAction.CallbackContext context)
     {
-        MoveEvent?.Invoke(context.ReadValue<Vector2>());
+        if (context.phase == InputActionPhase.Performed)
+        {
+            AttackEvent?.Invoke();
+        }
     }
+
+
 
     public void OnPause(InputAction.CallbackContext context)
     {
