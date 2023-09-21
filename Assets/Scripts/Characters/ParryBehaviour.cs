@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class ParryBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Animator animator;
+
+    [HideInInspector] public bool canParry = true;
+
+
+    public void Parry()
     {
-        
+        // Avoid attack logic if can't do it
+        if (!canParry) return;
+
+        canParry = false;
+
+        animator.SetBool("parry", true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EndParry()
     {
-        
+        canParry = true;
+        animator.SetBool("parry", false);
     }
 }

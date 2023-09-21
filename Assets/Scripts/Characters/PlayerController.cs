@@ -8,11 +8,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputReader input;
     [SerializeField] private MovementBehaviour movementBehaviour;
     [SerializeField] private AttackBehaviour attackBehaviour;
-
-    public bool canRepairItem;
-    public bool canChangeFloor;
-
+    [SerializeField] private ParryBehaviour parryBehaviour;
+    [SerializeField] private InteractBehaviour interactBehaviour;
+    [SerializeField] private HoldItemBehaviour holdItemBehaviour;
     public float life;
+
+    public bool canChangeFloor;
+    public bool canRepairItem;
 
     private void Start()
     {
@@ -20,29 +22,63 @@ public class PlayerController : MonoBehaviour
         input.MoveEvent += HandleMove;
         input.InteractEvent += HandleInteract;
         input.AttackEvent += HandleAttack;
+        input.ParryEvent += HandleParry;
+        input.HoldEvent += HandleHold;
     }
 
     private void HandleInteract()
     {
-        Debug.Log("I interact");
+        // TODO
+        interactBehaviour.Interact();
+    }
+
+    private void HandleHold()
+    {
+        // TODO
+        holdItemBehaviour.HoldOrDropItem();
     }
 
     private void HandleMove(Vector2 dir)
     {
-        movementBehaviour.Direction = dir;
+        movementBehaviour.direction = dir;
     }
 
     private void HandleAttack()
     {
-        movementBehaviour.CanMove = false;
+        movementBehaviour.canMove = false;
+        interactBehaviour.canInteract = false;
+        parryBehaviour.canParry = false;
+        holdItemBehaviour.canHold = false;
         attackBehaviour.Attack();
     }
 
+    private void HandleParry()
+    {
+        movementBehaviour.canMove = false;
+        interactBehaviour.canInteract = false;
+        attackBehaviour.canAttack = false;
+        holdItemBehaviour.canHold = false;
+        parryBehaviour.Parry();
+    }
 
-    // Called from the "Attacking" animation
+
+    // Called in the "Attacking" animation
     private void ManageEndAttack()
     {
-        movementBehaviour.CanMove = true;
+        movementBehaviour.canMove = true;
+        interactBehaviour.canInteract = true;
+        parryBehaviour.canParry = true;
+        holdItemBehaviour.canHold = true;
         attackBehaviour.EndAttack();
+    }
+
+    // Called in the "Parrying" animation
+    private void ManageEndParry()
+    {
+        movementBehaviour.canMove = true;
+        interactBehaviour.canInteract = true;
+        attackBehaviour.canAttack = true;
+        holdItemBehaviour.canHold = true;
+        parryBehaviour.EndParry();
     }
 }

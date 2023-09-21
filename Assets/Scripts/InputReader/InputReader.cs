@@ -38,7 +38,9 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     // Player events
     public event Action<Vector2> MoveEvent;
     public event Action InteractEvent;
+    public event Action HoldEvent;
     public event Action AttackEvent;
+    public event Action ParryEvent;
 
     // UI events
     public event Action PauseEvent;
@@ -51,9 +53,17 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.phase== InputActionPhase.Performed)
+        if (context.phase == InputActionPhase.Performed)
         {
             InteractEvent?.Invoke();
+        }
+    }
+
+    public void OnHold(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            HoldEvent?.Invoke();
         }
     }
 
@@ -65,7 +75,13 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         }
     }
 
-
+    public void OnParry(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            ParryEvent?.Invoke();
+        }
+    }
 
     public void OnPause(InputAction.CallbackContext context)
     {
