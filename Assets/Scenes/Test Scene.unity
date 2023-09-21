@@ -668,6 +668,8 @@ GameObject:
   - component: {fileID: 1755693685}
   - component: {fileID: 1755693687}
   - component: {fileID: 1755693688}
+  - component: {fileID: 1755693689}
+  - component: {fileID: 1755693690}
   - component: {fileID: 1755693686}
   m_Layer: 0
   m_Name: Player
@@ -709,10 +711,12 @@ MonoBehaviour:
   input: {fileID: 11400000, guid: 7ce1338a9dc79f447bb69c311cbdcc3e, type: 2}
   movementBehaviour: {fileID: 1755693685}
   attackBehaviour: {fileID: 1755693687}
-  parryBehaviour: {fileID: 0}
-  canRepairItem: 0
+  parryBehaviour: {fileID: 1755693688}
+  interactBehaviour: {fileID: 1755693689}
+  holdItemBehaviour: {fileID: 1755693690}
+  life: 3
   canChangeFloor: 0
-  life: 0
+  canRepairItem: 0
 --- !u!114 &1755693685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,6 +731,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   animator: {fileID: 1755693686}
+  direction: {x: 0, y: 0}
+  modifier: 1
+  canMove: 1
 --- !u!95 &1755693686
 Animator:
   serializedVersion: 5
@@ -761,6 +768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1755693686}
+  canAttack: 1
 --- !u!114 &1755693688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,7 +781,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e7607a33c22e54db47635024b07a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 1755693686}
+  canParry: 1
+--- !u!114 &1755693689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755693682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3a6b6e52f65c141b9a39ca099a5437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1755693686}
+  canInteract: 1
+--- !u!114 &1755693690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755693682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a8e57fbd4350de4c98871711f8d44c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1755693686}
+  canHold: 1
 --- !u!1 &1981200659
 GameObject:
   m_ObjectHideFlags: 0
