@@ -6,14 +6,17 @@ public class InteractBehaviour : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
-    //[HideInInspector] public interactiveObjectBehaviour InteractiveObject;
+    //[HideInInspector]
+    public InteractiveObjectBehaviour interactiveObject;
+
+    public float healOrDamagingLife;
+
     [HideInInspector] public bool canInteract = true;
 
     public void Interact()
     {
-        // TODO
-        if (!canInteract) return;
+        if (!canInteract || interactiveObject == null) return;
 
-        Debug.Log("Interact!");
+        interactiveObject.OnInteract(this);
     }
 }
