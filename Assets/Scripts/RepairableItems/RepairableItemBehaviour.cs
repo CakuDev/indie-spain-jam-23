@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RepairableItemBehaviour : MonoBehaviour
+public class RepairableItemBehaviour : InteractiveObjectBehaviour
 {
     //Life attributes
     [SerializeField]
@@ -23,17 +23,19 @@ public class RepairableItemBehaviour : MonoBehaviour
         isBeingRepaired = false;
     }
 
-    public void Attack(float lifeAmount)
+    public void ChangeLife(float lifeAmount)
     {
+        life = life + lifeAmount;
         //We start the game with full life
-        life -= lifeAmount;
-        CheckStatus(lifeAmount);
-    }
+        if (life < 0)
+        {
+            life = 0;
+        }
+        else if (life > totalLife)
+        {
+            life = totalLife;
+        }
 
-    public void Repair(float lifeAmount)
-    {
-        //We start the game with full life
-        life += lifeAmount;
         CheckStatus(lifeAmount);
     }
 
@@ -62,4 +64,10 @@ public class RepairableItemBehaviour : MonoBehaviour
             Debug.Log("Broken");
         }
     }
+
+    public override void OnInteract(InteractBehaviour interactBehaviour)
+    {
+        ChangeLife(interactBehaviour.healOrDamagingLife);       
+    }
+
 }

@@ -29,7 +29,7 @@ public class RepairableItemAttackController : MonoBehaviour
             int itemIndex = Random.Range(0, unrepairingItems.Count);
 
             //we attack the item with damageVariability
-            unrepairingItems[itemIndex].Attack(Random.Range(damagePerAttack - damageVariability, damagePerAttack + damageVariability));
+            unrepairingItems[itemIndex].ChangeLife(Random.Range(damagePerAttack - damageVariability, damagePerAttack + damageVariability));
         }
         
     }
