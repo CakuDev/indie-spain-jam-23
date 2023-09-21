@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementBehaviour : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    public float speed;
     [SerializeField] private Animator animator;
 
     [HideInInspector] public Vector2 direction = Vector2.zero;
@@ -32,7 +32,7 @@ public class MovementBehaviour : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        else
+        else if (direction.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
