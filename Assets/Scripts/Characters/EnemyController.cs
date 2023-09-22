@@ -50,13 +50,12 @@ public class EnemyController : MonoBehaviour
     private void Climb()
     {
         if (transform.position.y < climbHeight) return;
-
-        // transform.position = new(transform.position.x, climbHeight, transform.position.x);
         
         // Change to moving status, apply gravity and constraint rotation
         status = EnemyStatus.MOVING;
         enemyRb.bodyType = RigidbodyType2D.Dynamic;
         enemyRb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        
         // Change speed and move into the window depending on his facing direction
         movementBehaviour.speed = walkingSpeed;
         movementBehaviour.direction = transform.localScale.x == 1 ? Vector2.right : Vector2.left;
@@ -78,6 +77,8 @@ public class EnemyController : MonoBehaviour
     {
         // Enable attack and check if the player has moved
         attackBehaviour.canAttack = true;
+
+        // The status while be ATTACKING while the player is in the Detect Player Collider
         if (status == EnemyStatus.ATTACKING)
         {
             attackBehaviour.Attack();
