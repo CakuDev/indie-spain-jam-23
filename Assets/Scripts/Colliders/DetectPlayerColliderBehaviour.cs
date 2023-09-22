@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectPlayerBehaviour : MonoBehaviour
+public class DetectPlayerColliderBehaviour : MonoBehaviour
 {
     [SerializeField] private EnemyController enemyController;
 

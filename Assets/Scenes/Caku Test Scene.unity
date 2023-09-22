@@ -214,6 +214,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyController: {fileID: 186652721}
+--- !u!1 &22301113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22301114}
+  m_Layer: 0
+  m_Name: Floors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &22301114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22301113}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 627461922}
+  m_Father: {fileID: 268647646}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &186652714
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +348,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 186652717}
+  interactiveObject: {fileID: 0}
+  healOrDamagingLife: 0
   canInteract: 1
 --- !u!114 &186652719
 MonoBehaviour:
@@ -330,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 186652717}
+  attackCollider: {fileID: 0}
   canAttack: 1
 --- !u!114 &186652720
 MonoBehaviour:
@@ -360,12 +395,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248ca60be7e9ce943bbd7173b7014498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalLife: 1
+  animator: {fileID: 186652717}
   movementBehaviour: {fileID: 186652720}
   attackBehaviour: {fileID: 186652719}
   interactBehaviour: {fileID: 186652718}
   enemyRb: {fileID: 186652716}
   climbingSpeed: 2
   walkingSpeed: 4
+  currentFloor: {fileID: 627461923}
 --- !u!212 &186652723
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -483,6 +521,7 @@ Transform:
   m_Children:
   - {fileID: 1755693683}
   - {fileID: 186652715}
+  - {fileID: 22301114}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -700,6 +739,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!1 &627461921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 627461922}
+  - component: {fileID: 627461923}
+  m_Layer: 0
+  m_Name: Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &627461922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627461921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -4.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 22301114}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &627461923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627461921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579fc280d96ef7a4281151c23ca2c8b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repairableItem: {fileID: 0}
 --- !u!1 &764569117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,6 +1554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1614812223}
   - component: {fileID: 1614812224}
+  - component: {fileID: 1614812225}
   m_Layer: 0
   m_Name: Attack Collider
   m_TagString: Untagged
@@ -1537,6 +1622,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1614812225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614812222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a45bc5df7ff434e4aa9f44972e7095df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1755693682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,15 +1689,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48fa8fca8814a1a47aacab33fd06e14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalLife: 3
+  animator: {fileID: 1755693686}
   input: {fileID: 11400000, guid: 7ce1338a9dc79f447bb69c311cbdcc3e, type: 2}
   movementBehaviour: {fileID: 1755693685}
   attackBehaviour: {fileID: 1755693687}
   parryBehaviour: {fileID: 1755693688}
   interactBehaviour: {fileID: 1755693689}
   holdItemBehaviour: {fileID: 1755693690}
-  life: 3
-  canChangeFloor: 0
-  canRepairItem: 0
+  currentFloor: {fileID: 627461923}
 --- !u!114 &1755693685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1652,6 +1749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1755693686}
+  attackCollider: {fileID: 0}
   canAttack: 1
 --- !u!114 &1755693688
 MonoBehaviour:
@@ -1680,6 +1778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1755693686}
+  interactiveObject: {fileID: 0}
+  healOrDamagingLife: 0
   canInteract: 1
 --- !u!114 &1755693690
 MonoBehaviour:

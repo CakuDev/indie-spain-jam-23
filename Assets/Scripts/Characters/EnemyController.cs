@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : AttackableController
 {
     [SerializeField] private MovementBehaviour movementBehaviour;
     [SerializeField] private AttackBehaviour attackBehaviour;
@@ -13,15 +13,34 @@ public class EnemyController : MonoBehaviour
 
     private float climbHeight;
     private EnemyStatus status;
+    public FloorController currentFloor;
 
     public void Start()
     {
         movementBehaviour.direction = Vector2.up;
         OnSpawn(-0.7f);
+
+        // Init life counter
+        ResetLife();
     }
 
     private void Update()
     {
+        // After taking a decision, check if the status must change
+        if(ShouldChasePlayer())
+        {
+            status = EnemyStatus.MOVING;
+            // Move left or right depending on the enemy and player positions
+            int direction = transform.position.x > PlayerController.Instance.transform.position.x ? -1 : 1;
+            movementBehaviour.direction = new(direction, 0);
+        }
+
+        // If the enemy was hitting the player and he is death, ignore him
+        if(status == EnemyStatus.ATTACKING && PlayerController.Instance.currentLife <= 0)
+        {
+            status = EnemyStatus.MOVING;
+        }
+
         switch (status)
         {
             case EnemyStatus.ATTACKING:
@@ -63,6 +82,9 @@ public class EnemyController : MonoBehaviour
 
     // Called in the DetectPlayerBehaviour onEnterTrigger
     public void OnPlayerCollisionEnter() {
+        // Ignore player if he's death
+        if (PlayerController.Instance.currentLife <= 0) return;
+
         movementBehaviour.canMove = false;
         status = EnemyStatus.ATTACKING;
     }
@@ -87,5 +109,43 @@ public class EnemyController : MonoBehaviour
             attackBehaviour.EndAttack();
             movementBehaviour.canMove = true;
         }
+    }
+
+    public bool ShouldChasePlayer()
+    {
+        // If it's not attacking nor climbing, the player is in the same floor and player is alive
+        return status != EnemyStatus.ATTACKING
+            && status != EnemyStatus.CLIMBING
+            && currentFloor == PlayerController.Instance.currentFloor
+            && PlayerController.Instance.currentLife > 0;
+    }
+
+    protected override void ManageHit()
+    {
+        // End any action and block them
+        attackBehaviour.EndAttack();
+        movementBehaviour.canMove = false;
+        interactBehaviour.canInteract = false;
+        attackBehaviour.canAttack = false;
+
+        animator.SetBool("hit", true);
+    }
+
+    protected override void ManageDeath()
+    {
+        // End any action and block them
+        attackBehaviour.EndAttack();
+        movementBehaviour.canMove = false;
+        interactBehaviour.canInteract = false;
+        attackBehaviour.canAttack = false;
+
+        animator.SetBool("death", true);
+        canBeHit = false;
+    }
+
+    // Call in the Death animation
+    private void DestroyThis()
+    {
+        Destroy(gameObject);
     }
 }

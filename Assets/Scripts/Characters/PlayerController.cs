@@ -3,18 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : AttackableController
 {
+    // SINGLETON
+    public static PlayerController Instance { get; private set; }
+
     [SerializeField] private InputReader input;
     [SerializeField] private MovementBehaviour movementBehaviour;
     [SerializeField] private AttackBehaviour attackBehaviour;
     [SerializeField] private ParryBehaviour parryBehaviour;
     [SerializeField] private InteractBehaviour interactBehaviour;
     [SerializeField] private HoldItemBehaviour holdItemBehaviour;
-    public float life;
+    
+    public FloorController currentFloor;
 
-    public bool canChangeFloor;
-    public bool canRepairItem;
+    private void Awake()
+    {
+        // Singleton logic
+        if (Instance != null && Instance != this) Destroy(gameObject);
+
+        if (Instance == null) Instance = this;
+    }
 
     private void Start()
     {
@@ -24,11 +33,13 @@ public class PlayerController : MonoBehaviour
         input.AttackEvent += HandleAttack;
         input.ParryEvent += HandleParry;
         input.HoldEvent += HandleHold;
+
+        // Init life counter
+        ResetLife();
     }
 
     private void HandleInteract()
     {
-        // TODO
         interactBehaviour.Interact();
     }
 
@@ -80,5 +91,51 @@ public class PlayerController : MonoBehaviour
         attackBehaviour.canAttack = true;
         holdItemBehaviour.canHold = true;
         parryBehaviour.EndParry();
+    }
+
+    protected override void ManageHit()
+    {
+        // End any action and block them
+        attackBehaviour.EndAttack();
+        parryBehaviour.EndParry();
+        movementBehaviour.canMove = false;
+        interactBehaviour.canInteract = false;
+        attackBehaviour.canAttack = false;
+        holdItemBehaviour.canHold = false;
+        parryBehaviour.canParry = false;
+        
+        animator.SetBool("hit", true);
+        
+    }
+
+    protected override void ManageDeath()
+    {
+        // End any action and block them
+        attackBehaviour.EndAttack();
+        parryBehaviour.EndParry();
+        movementBehaviour.canMove = false;
+        interactBehaviour.canInteract = false;
+        attackBehaviour.canAttack = false;
+        holdItemBehaviour.canHold = false;
+        parryBehaviour.canParry = false;
+
+        animator.SetBool("death", true);
+    }
+
+    // Call from the Hit and Death animations
+    private void EnableAllActions()
+    {
+        movementBehaviour.canMove = true;
+        interactBehaviour.canInteract = true;
+        attackBehaviour.canAttack = true;
+        holdItemBehaviour.canHold = true;
+        parryBehaviour.canParry = true;
+
+        animator.SetBool("hit", false);
+        animator.SetBool("death", false);
+        canBeHit = true;
+
+        // If comes from death, reset life
+        if (currentLife <= 0) ResetLife();
     }
 }
