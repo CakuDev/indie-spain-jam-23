@@ -11,6 +11,7 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
     public float life; //Life countdown
 
     public bool isBroken;//To avoid receiving attacks while repairing
+    public ItemStatus status;
 
     //UI Attributes
     public GameObject lifeLight;
@@ -22,6 +23,7 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
     {
         //We start the game with full life
         life = totalLife;
+        status = ItemStatus.GREEN;
         isBroken = false;
     }
 
@@ -52,6 +54,7 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
                 //Change Light to green color
                 lifeLight.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0);
                 transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
+                status = ItemStatus.GREEN;
             } else
             {
                 if (lifePercentage == 100)
@@ -59,6 +62,7 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
                     isBroken = true;
                     lifeLight.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0);
                     transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
+                    status = ItemStatus.GREEN;
                 }
             }            
         }
@@ -67,12 +71,14 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
             //Change Light to yellow color
             lifeLight.GetComponent<SpriteRenderer>().color = new Color(255, 255, 0);
             transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
+            status = ItemStatus.YELLOW;
         }
         else if (lifePercentage > 0 && lifePercentage <= 33.3f && !isBroken)
         {
             //Change Light to red color
             lifeLight.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
             transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
+            status = ItemStatus.RED;
         }
         else
         {
@@ -80,6 +86,7 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
             lifeLight.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
             transform.GetComponent<SpriteRenderer>().sprite = brokenSprite;
             isBroken = true;
+            status = ItemStatus.BROKEN;
         }
     }
 
