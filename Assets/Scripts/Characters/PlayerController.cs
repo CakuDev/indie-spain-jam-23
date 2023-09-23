@@ -107,7 +107,7 @@ public class PlayerController : AttackableController
         parryBehaviour.canParry = false;
         
         animator.SetBool("hit", true);
-        
+        Invoke(nameof(EnableAllActions), 0.6f);
     }
 
     protected override void ManageDeath()
@@ -122,11 +122,14 @@ public class PlayerController : AttackableController
         parryBehaviour.canParry = false;
 
         animator.SetBool("death", true);
+        Invoke(nameof(EnableAllActions), 2f);
     }
 
     // Call from the Hit and Death animations
     private void EnableAllActions()
     {
+        Debug.Log("ENABLE ALL ACTIONS");
+
         movementBehaviour.canMove = true;
         interactBehaviour.canInteract = true;
         attackBehaviour.canAttack = true;

@@ -10,7 +10,7 @@ public class EnemiesSpawnerController : MonoBehaviour
     [SerializeField] private bool isLeftSpawner;
 
     private Coroutine spawnCoroutine;
-    [HideInInspector] float secondsToSpawn = 5f;
+    public float secondsToSpawn = 5f;
 
     private void Start()
     {
@@ -23,10 +23,10 @@ public class EnemiesSpawnerController : MonoBehaviour
         {
             yield return new WaitForSeconds(secondsToSpawn);
             // Instantiate the enemy  and choose the floor to go
-            
             EnemyController enemyController = Instantiate(enemyPrefab, transform.position, enemyPrefab.transform.rotation, enemyContainer).GetComponent<EnemyController>();
             int floorToSpawn = Random.Range(0, floors.Count);
-            enemyController.OnSpawn(floors[floorToSpawn].position.y);
+            Transform floorEntrance = floors[floorToSpawn];
+            enemyController.OnSpawn(floorEntrance.position.y, floorEntrance.parent.GetComponent<FloorController>());
 
             // Set the correct scale
             enemyController.transform.localScale = new(isLeftSpawner ? 1 : -1, 1, 1);

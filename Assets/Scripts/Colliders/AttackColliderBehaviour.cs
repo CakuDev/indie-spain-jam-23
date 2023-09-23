@@ -11,7 +11,6 @@ public class AttackColliderBehaviour : MonoBehaviour
     private void Update()
     {
         if (attackableController == null) return;
-        Debug.Log("HIT");
         attackableController.OnHit();
     }
 

@@ -54,7 +54,7 @@ public class EnemyController : AttackableController
         }
     }
 
-    public void OnSpawn(float height)
+    public void OnSpawn(float height, FloorController floorController)
     {
 
         // Prepare to climb
@@ -62,6 +62,7 @@ public class EnemyController : AttackableController
         status = EnemyStatus.CLIMBING;
         movementBehaviour.speed = climbingSpeed;
         movementBehaviour.direction = Vector2.up;
+        currentFloor = floorController;
 
         // Init life counter
         ResetLife();

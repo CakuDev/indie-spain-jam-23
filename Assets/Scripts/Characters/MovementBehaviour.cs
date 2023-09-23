@@ -9,7 +9,7 @@ public class MovementBehaviour : MonoBehaviour
 
     [HideInInspector] public Vector2 direction = Vector2.zero;
     [HideInInspector] public float modifier = 1f;
-    [HideInInspector] public bool canMove = true;
+     public bool canMove = true;
 
     void FixedUpdate()
     {
