@@ -26,8 +26,10 @@ public class EnemyController : AttackableController
 
     private void Update()
     {
+        if (animator.GetBool("death") || animator.GetBool("parried")) return;
+
         // After taking a decision, check if the status must change
-        if(ShouldChasePlayer())
+        if (ShouldChasePlayer())
         {
             status = EnemyStatus.MOVING;
             // Move left or right depending on the enemy and player positions
@@ -51,6 +53,8 @@ public class EnemyController : AttackableController
 
     private void FixedUpdate()
     {
+        if (animator.GetBool("death") || animator.GetBool("parried")) return;
+        
         switch(status)
         {
             case EnemyStatus.CLIMBING:
@@ -82,6 +86,8 @@ public class EnemyController : AttackableController
 
     // Called in the DetectPlayerBehaviour onEnterTrigger
     public void OnPlayerCollisionEnter() {
+        if (animator.GetBool("death")) return;
+
         // Ignore player if he's death
         if (PlayerController.Instance.currentLife <= 0) return;
 
@@ -147,5 +153,25 @@ public class EnemyController : AttackableController
     private void DestroyThis()
     {
         Destroy(gameObject);
+    }
+
+    public void OnParried()
+    {
+        // End any action and block them
+        attackBehaviour.EndAttack();
+        movementBehaviour.canMove = false;
+        interactBehaviour.canInteract = false;
+        attackBehaviour.canAttack = false;
+
+        animator.SetBool("parried", true);
+    }
+
+    public void ManageEndParried()
+    {
+        movementBehaviour.canMove = true;
+        interactBehaviour.canInteract = true;
+        attackBehaviour.canAttack = true;
+
+        animator.SetBool("parried", false);
     }
 }

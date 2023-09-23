@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 186652724}
   m_Layer: 7
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -672,6 +672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 560146391}
   - component: {fileID: 560146392}
+  - component: {fileID: 560146393}
   m_Layer: 0
   m_Name: Parry Collider
   m_TagString: Untagged
@@ -739,6 +740,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &560146393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560146390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2af33c31528b444e862b75862318b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &627461921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1060,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1423103098}
+  - component: {fileID: 1423103100}
   - component: {fileID: 1423103099}
   m_Layer: 0
   m_Name: Attack Collider
@@ -1115,6 +1129,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1423103100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423103097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a45bc5df7ff434e4aa9f44972e7095df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagToHit: Enemy
 --- !u!1 &1429666481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,6 +1661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45bc5df7ff434e4aa9f44972e7095df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tagToHit: Player
 --- !u!1 &1755693682
 GameObject:
   m_ObjectHideFlags: 0

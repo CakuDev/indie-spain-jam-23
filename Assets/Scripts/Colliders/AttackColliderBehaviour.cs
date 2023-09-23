@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AttackColliderBehaviour : MonoBehaviour
 {
+    [SerializeField] private string tagToHit;
+
     private AttackableController attackableController;
 
     private void Update()
@@ -15,7 +17,7 @@ public class AttackColliderBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out AttackableController attackableController))
+        if (collision.CompareTag(tagToHit) && collision.TryGetComponent(out AttackableController attackableController))
         {
             this.attackableController = attackableController;
             attackableController.OnHit();

@@ -69,6 +69,7 @@ public class PlayerController : AttackableController
         interactBehaviour.canInteract = false;
         attackBehaviour.canAttack = false;
         holdItemBehaviour.canHold = false;
+        canBeHit = false;
         parryBehaviour.Parry();
     }
 
@@ -90,6 +91,7 @@ public class PlayerController : AttackableController
         interactBehaviour.canInteract = true;
         attackBehaviour.canAttack = true;
         holdItemBehaviour.canHold = true;
+        canBeHit = true;
         parryBehaviour.EndParry();
     }
 
