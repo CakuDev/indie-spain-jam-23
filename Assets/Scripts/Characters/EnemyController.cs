@@ -12,8 +12,9 @@ public class EnemyController : AttackableController
     [SerializeField] private float walkingSpeed = 4f;
 
     private float climbHeight;
-    private EnemyStatus status;
+    public EnemyStatus status;
     public FloorController currentFloor;
+    private bool shouldInteract = true;
 
     private void Update()
     {
@@ -24,14 +25,42 @@ public class EnemyController : AttackableController
         {
             status = EnemyStatus.MOVING;
             // Move left or right depending on the enemy and player positions
+            movementBehaviour.canMove = true;
             int direction = transform.position.x > PlayerController.Instance.transform.position.x ? -1 : 1;
+            movementBehaviour.direction = new(direction, 0);
+        } else if (ShouldDestroyCurrentRepairableItem())
+        {
+            movementBehaviour.canMove = false;
+            status = EnemyStatus.DESTROYING;
+            if (shouldInteract)
+            {
+                interactBehaviour.Interact();
+                shouldInteract = false;
+                Invoke(nameof(EnableInteraction), 1f);
+            }
+        } else if (ShouldMoveToCurrentRepairableItem())
+        {
+            status = EnemyStatus.MOVING;
+            // Move left or right depending on the enemy and repairable item positions
+            movementBehaviour.canMove = true;
+            int direction = transform.position.x > currentFloor.repairableItem.transform.position.x ? -1 : 1;
             movementBehaviour.direction = new(direction, 0);
         }
 
         // If the enemy was hitting the player and he is death, ignore him
-        if(status == EnemyStatus.ATTACKING && PlayerController.Instance.currentLife <= 0)
+        if (status == EnemyStatus.ATTACKING && PlayerController.Instance.currentLife <= 0)
         {
             status = EnemyStatus.MOVING;
+        }
+
+        if (status == EnemyStatus.DESTROYING)
+        {
+            animator.SetBool("interact", true);
+            animator.SetBool("walk", false);
+            animator.SetBool("attack", false);
+            animator.SetBool("parried", false);
+        } else { 
+            animator.SetBool("interact", false);
         }
 
         switch (status)
@@ -125,6 +154,23 @@ public class EnemyController : AttackableController
             && PlayerController.Instance.currentLife > 0;
     }
 
+    public bool ShouldMoveToCurrentRepairableItem()
+    {
+        // If it's not attacking nor climbing, the player is in the same floor and player is alive
+        return status != EnemyStatus.ATTACKING
+            && status != EnemyStatus.CLIMBING
+            && currentFloor.repairableItem.life > 0;
+    }
+
+    public bool ShouldDestroyCurrentRepairableItem()
+    {
+        return status != EnemyStatus.ATTACKING
+            && status != EnemyStatus.CLIMBING
+            && currentFloor.repairableItem.life > 0
+            && interactBehaviour.interactiveObject != null
+            && interactBehaviour.interactiveObject is RepairableItemBehaviour;
+    }
+
     protected override void ManageHit()
     {
         // End any action and block them
@@ -172,5 +218,10 @@ public class EnemyController : AttackableController
         attackBehaviour.canAttack = true;
 
         animator.SetBool("parried", false);
+    }
+
+    public void EnableInteraction()
+    {
+        shouldInteract = true;
     }
 }

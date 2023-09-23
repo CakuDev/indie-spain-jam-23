@@ -221,7 +221,7 @@ Transform:
   - {fileID: 643058597307964363}
   - {fileID: 6033027531655716920}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7966843833615947922
 SpriteRenderer:
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3078741380778245726}
-  attackCollider: {fileID: 0}
+  attackCollider: {fileID: 8777543481421545348}
   canAttack: 1
 --- !u!114 &4634092797419414732
 MonoBehaviour:

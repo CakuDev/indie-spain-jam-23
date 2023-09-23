@@ -22,8 +22,26 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
         time: 0.33333334
         value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -46,7 +64,7 @@ AnimationClip:
     - time: 0.33333334
       value: {fileID: -1186096465, guid: e9b623cb6bc6edb46b8be67824526462, type: 3}
     - time: 0.6666667
-      value: {fileID: 470973480, guid: e9b623cb6bc6edb46b8be67824526462, type: 3}
+      value: {fileID: 850340086, guid: e9b623cb6bc6edb46b8be67824526462, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -80,7 +98,7 @@ AnimationClip:
     pptrCurveMapping:
     - {fileID: 850340086, guid: e9b623cb6bc6edb46b8be67824526462, type: 3}
     - {fileID: -1186096465, guid: e9b623cb6bc6edb46b8be67824526462, type: 3}
-    - {fileID: 470973480, guid: e9b623cb6bc6edb46b8be67824526462, type: 3}
+    - {fileID: 850340086, guid: e9b623cb6bc6edb46b8be67824526462, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -107,8 +125,26 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
         time: 0.33333334
         value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
