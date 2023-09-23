@@ -15,15 +15,6 @@ public class EnemyController : AttackableController
     private EnemyStatus status;
     public FloorController currentFloor;
 
-    public void Start()
-    {
-        movementBehaviour.direction = Vector2.up;
-        OnSpawn(-0.7f);
-
-        // Init life counter
-        ResetLife();
-    }
-
     private void Update()
     {
         if (animator.GetBool("death") || animator.GetBool("parried")) return;
@@ -65,9 +56,15 @@ public class EnemyController : AttackableController
 
     public void OnSpawn(float height)
     {
+
+        // Prepare to climb
         climbHeight = height;
         status = EnemyStatus.CLIMBING;
         movementBehaviour.speed = climbingSpeed;
+        movementBehaviour.direction = Vector2.up;
+
+        // Init life counter
+        ResetLife();
     }
 
     private void Climb()
@@ -82,6 +79,7 @@ public class EnemyController : AttackableController
         // Change speed and move into the window depending on his facing direction
         movementBehaviour.speed = walkingSpeed;
         movementBehaviour.direction = transform.localScale.x == 1 ? Vector2.right : Vector2.left;
+        animator.SetBool("climb", false);
     }
 
     // Called in the DetectPlayerBehaviour onEnterTrigger
