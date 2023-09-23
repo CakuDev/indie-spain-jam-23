@@ -5,15 +5,29 @@ using UnityEngine;
 public class RepairableItemAttackController : MonoBehaviour
 {
     public List<RepairableItemBehaviour> repairableItems;
-    public float attacksPerSecond;
+    public float timeBetweenAttacks;
+    public int attacksPerTime;
     public float damagePerAttack;
     public float damageVariability;
     public AudioClip hackSound;
     public Coroutine itemHackingCoroutine;
 
+    [SerializeField]
+    private float timeCounter;
+
     private void Start()
     {
-        itemHackingCoroutine = StartCoroutine(CheckAttack());
+        timeCounter = 0;
+    }
+
+    private void Update()
+    {
+            if (timeCounter >= timeBetweenAttacks)
+            {
+                Attack();
+                timeCounter = 0;
+            }
+            timeCounter += Time.deltaTime;
     }
 
     //Attacks randomly 
@@ -24,7 +38,7 @@ public class RepairableItemAttackController : MonoBehaviour
         //To avoid attacking objects being repaired or are already broken, we exclude them from the selection
         foreach (RepairableItemBehaviour item in repairableItems)
         {
-            if (!item.isBeingRepaired || item.life > 0)
+            if (!item.isBroken)
             {
                 unrepairingItems.Add(item);
             }
@@ -36,17 +50,11 @@ public class RepairableItemAttackController : MonoBehaviour
             int itemIndex = Random.Range(0, unrepairingItems.Count);
 
             //we attack the item with damageVariability
-            unrepairingItems[itemIndex].ChangeLife(-1 * Random.Range(damagePerAttack - damageVariability, damagePerAttack + damageVariability));
+            float damageQuantity = Mathf.Abs(Random.Range(damagePerAttack - damageVariability, damagePerAttack + damageVariability));
+            unrepairingItems[itemIndex].ChangeLife(-1 * damageQuantity);
+            Debug.Log("A hacking attack was produced against " + unrepairingItems[itemIndex].name + " of " + damageQuantity);
         }
         
-    }
-
-    private IEnumerator CheckAttack()
-    {
-        while (true)//sustituir por vida bombilla > 0, o algo así 
-        {
-
-        }
     }
 
 

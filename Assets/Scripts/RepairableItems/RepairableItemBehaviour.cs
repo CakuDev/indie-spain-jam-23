@@ -10,7 +10,7 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
     private float totalLife; //Total amount of second the item has before breaking
     public float life; //Life countdown
 
-    public bool isBeingRepaired;//To avoid receiving attacks while repairing
+    public bool isBroken;//To avoid receiving attacks while repairing
 
     //UI Attributes
     public GameObject lifeLight;
@@ -22,7 +22,7 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
     {
         //We start the game with full life
         life = totalLife;
-        isBeingRepaired = false;
+        isBroken = false;
     }
 
     public void ChangeLife(float lifeAmount)
@@ -44,35 +44,42 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
     private void CheckStatus()
     {
         float lifePercentage = life / totalLife * 100;
-        Debug.Log(lifePercentage + "%");
 
         if (lifePercentage > 66.6f && lifePercentage <= 100)
         {
-            //Change Light to green color
-            lifeLight.GetComponent<SpriteRenderer>().color = new Color(0,255,0);
-            transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
-            Debug.Log("Green");
+            if (!isBroken)
+            {
+                //Change Light to green color
+                lifeLight.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0);
+                transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
+            } else
+            {
+                if (lifePercentage == 100)
+                {
+                    isBroken = true;
+                    lifeLight.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0);
+                    transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
+                }
+            }            
         }
-        else if (lifePercentage > 33.3f && lifePercentage <= 66.6f)
+        else if (lifePercentage > 33.3f && lifePercentage <= 66.6f && !isBroken)
         {
             //Change Light to yellow color
             lifeLight.GetComponent<SpriteRenderer>().color = new Color(255, 255, 0);
             transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
-            Debug.Log("Yellow");
         }
-        else if (lifePercentage > 0 && lifePercentage <= 33.3f)
+        else if (lifePercentage > 0 && lifePercentage <= 33.3f && !isBroken)
         {
             //Change Light to red color
             lifeLight.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
             transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
-            Debug.Log("Red");
         }
         else
         {
             //Turn off light and sprite broken
             lifeLight.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
             transform.GetComponent<SpriteRenderer>().sprite = brokenSprite;
-            Debug.Log("Broken");
+            isBroken = true;
         }
     }
 
