@@ -11,12 +11,13 @@ public class InteractBehaviour : MonoBehaviour
 
     public float healOrDamagingLife;
 
-    [HideInInspector] public bool canInteract = true;
+    public bool canInteract = true;
 
     public void Interact()
     {
+        Debug.Log("INTERACTING!");
         if (!canInteract || interactiveObject == null) return;
-
+        
         interactiveObject.OnInteract(this);
     }
 }
