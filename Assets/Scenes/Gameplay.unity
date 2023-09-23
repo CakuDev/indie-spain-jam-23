@@ -2189,6 +2189,14 @@ PrefabInstance:
       propertyPath: totalLife
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5837265926411626487, guid: 85d550cae4d24f7469fd2f8fdc746b9d, type: 3}
+      propertyPath: aliveSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7c6a4d99616267d4ea487d7082c5c6f5, type: 3}
+    - target: {fileID: 5837265926411626487, guid: 85d550cae4d24f7469fd2f8fdc746b9d, type: 3}
+      propertyPath: brokenSprite
+      value: 
+      objectReference: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5931625674404122121, guid: 85d550cae4d24f7469fd2f8fdc746b9d, type: 3}
       propertyPath: m_Sprite
       value: 
