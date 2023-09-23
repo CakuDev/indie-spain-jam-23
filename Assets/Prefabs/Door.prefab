@@ -48,6 +48,7 @@ MonoBehaviour:
   buttonToPressSprite: {fileID: 0}
   objectToTeleport: {fileID: 0}
   cameraPosition: {fileID: 0}
+  tweeningDuration: 0.2
 --- !u!61 &8129479768496892381
 BoxCollider2D:
   m_ObjectHideFlags: 0
