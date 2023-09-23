@@ -15,6 +15,8 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
     //UI Attributes
     public GameObject lifeLight;
     public GameObject itemGameObject;
+    public Sprite aliveSprite;
+    public Sprite brokenSprite;
 
     private void Start()
     {
@@ -48,24 +50,28 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
         {
             //Change Light to green color
             lifeLight.GetComponent<SpriteRenderer>().color = new Color(0,255,0);
+            transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
             Debug.Log("Green");
         }
         else if (lifePercentage > 33.3f && lifePercentage <= 66.6f)
         {
             //Change Light to yellow color
             lifeLight.GetComponent<SpriteRenderer>().color = new Color(255, 255, 0);
+            transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
             Debug.Log("Yellow");
         }
         else if (lifePercentage > 0 && lifePercentage <= 33.3f)
         {
             //Change Light to red color
             lifeLight.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+            transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
             Debug.Log("Red");
         }
         else
         {
             //Turn off light and sprite broken
             lifeLight.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+            transform.GetComponent<SpriteRenderer>().sprite = brokenSprite;
             Debug.Log("Broken");
         }
     }
