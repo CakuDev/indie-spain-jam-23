@@ -8,6 +8,13 @@ public class RepairableItemAttackController : MonoBehaviour
     public float attacksPerSecond;
     public float damagePerAttack;
     public float damageVariability;
+    public AudioClip hackSound;
+    public Coroutine itemHackingCoroutine;
+
+    private void Start()
+    {
+        itemHackingCoroutine = StartCoroutine(CheckAttack());
+    }
 
     //Attacks randomly 
     public void Attack()
@@ -29,9 +36,19 @@ public class RepairableItemAttackController : MonoBehaviour
             int itemIndex = Random.Range(0, unrepairingItems.Count);
 
             //we attack the item with damageVariability
-            unrepairingItems[itemIndex].ChangeLife(Random.Range(damagePerAttack - damageVariability, damagePerAttack + damageVariability));
+            unrepairingItems[itemIndex].ChangeLife(-1 * Random.Range(damagePerAttack - damageVariability, damagePerAttack + damageVariability));
         }
         
     }
+
+    private IEnumerator CheckAttack()
+    {
+        while (true)//sustituir por vida bombilla > 0, o algo así 
+        {
+
+        }
+    }
+
+
 
 }
