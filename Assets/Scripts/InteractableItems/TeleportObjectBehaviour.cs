@@ -22,9 +22,20 @@ public class TeleportObjectBehaviour : InteractiveObjectBehaviour
     public override void OnInteract(InteractBehaviour interactBehaviour)
     {
         interactBehaviour.transform.position = objectToTeleport.position;
-        Vector3 newPos = new Vector3(cameraPosition.position.x, cameraPosition.position.y, Camera.main.transform.position.z);
-        Camera.main.transform.DOMove(newPos, tweeningDuration);
+
+        if(interactBehaviour.CompareTag("Player"))
+        {
+            Vector3 newPos = new Vector3(cameraPosition.position.x, cameraPosition.position.y, Camera.main.transform.position.z);
+            Camera.main.transform.DOMove(newPos, tweeningDuration);
+        }
 
         interactBehaviour.GetComponent<AttackableController>().currentFloor = floorToTp;
+        StartCoroutine(SetNewInteractiveObject(interactBehaviour));
+    }
+
+    IEnumerator SetNewInteractiveObject(InteractBehaviour interactBehaviour)
+    {
+        yield return new WaitForSeconds(0.1f);
+        interactBehaviour.interactiveObject = objectToTeleport.GetComponent<TeleportObjectBehaviour>();
     }
 }
