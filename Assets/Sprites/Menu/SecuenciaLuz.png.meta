@@ -106,19 +106,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -137,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4660db0853dee84fa0a86359ad4edff
-      internalID: 282758045
+      spriteID: dbb8386e570133f4dbf96b31f3e1af9f
+      internalID: -815652494
       vertices: []
       indices: 
       edges: []
@@ -158,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b9d6819fdef6c841bf6244068343c80
-      internalID: -955760131
+      spriteID: a26fa106a94e9734a9e8609bcd468070
+      internalID: -597732858
       vertices: []
       indices: 
       edges: []
@@ -179,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36060594b09770645aa0fca1363702b4
-      internalID: -1575410042
+      spriteID: f6a6fa20faa9aa3438dc987705f713a2
+      internalID: 1589918147
       vertices: []
       indices: 
       edges: []
@@ -200,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baa655cc2dc71ea4b9f1bd5090b662dd
-      internalID: -1846410285
+      spriteID: c9d4717f16307ae43981c698be269fad
+      internalID: -844655079
       vertices: []
       indices: 
       edges: []
@@ -221,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 178f50ad0679ae84d97faf7b2a27ab5a
-      internalID: -101639178
+      spriteID: 76f5b7ce73acc884a9b3c0ec482f83ba
+      internalID: 1703617354
       vertices: []
       indices: 
       edges: []
@@ -238,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SecuenciaLuz_0: 282758045
-      SecuenciaLuz_1: -955760131
-      SecuenciaLuz_2: -1575410042
-      SecuenciaLuz_3: -1846410285
-      SecuenciaLuz_4: -101639178
+      SecuenciaLuz_0: -815652494
+      SecuenciaLuz_1: -597732858
+      SecuenciaLuz_2: 1589918147
+      SecuenciaLuz_3: -844655079
+      SecuenciaLuz_4: 1703617354
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
