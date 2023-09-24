@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 925b6d4446032c343bdc071fddac65f0
+guid: 9376300ac70737842a1485f0a4f443c5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,30 +106,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FuseBox_Sheet_0
+      name: Steam_Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 17
-        height: 23
+        width: 166
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 290f7e29ca6256046803dfe0a480c3ab
-      internalID: -1819933278
+      spriteID: 60a590abf4e96e043956db38811ca45b
+      internalID: 966912158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FuseBox_Sheet_1
+      name: Steam_Sheet_1
       rect:
         serializedVersion: 2
-        x: 17
+        x: 166
         y: 0
-        width: 17
-        height: 23
+        width: 166
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a86bf2052e986d44ea372f07c4d07904
-      internalID: 1898788666
+      spriteID: 1622117a0ee640d4c90b51234a461e17
+      internalID: -468572523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FuseBox_Sheet_2
+      name: Steam_Sheet_2
       rect:
         serializedVersion: 2
-        x: 34
+        x: 332
         y: 0
-        width: 17
-        height: 23
+        width: 166
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f1bb7990b45649489612c2f169ea87b
-      internalID: -171893949
+      spriteID: ae08ad98ebc1b1d48b42099a8ee03a2b
+      internalID: -909825556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FuseBox_Sheet_3
+      name: Steam_Sheet_3
       rect:
         serializedVersion: 2
-        x: 51
+        x: 498
         y: 0
-        width: 17
-        height: 23
+        width: 166
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31e4418698eda514a8279d959e5b0390
-      internalID: 1790382741
+      spriteID: 4e744a7b92b94e348a4f44b56b054255
+      internalID: 1131464395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FuseBox_Sheet_4
+      name: Steam_Sheet_4
       rect:
         serializedVersion: 2
-        x: 68
+        x: 664
         y: 0
-        width: 17
-        height: 23
+        width: 166
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,8 +208,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a136ff0cdf975ac4c89a9f8aa76f03de
-      internalID: -1575874343
+      spriteID: 84654565a815bb34a803ae7b42c8e452
+      internalID: -1388734892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steam_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 0
+        width: 166
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b756a3c1c2524442bf124a7d59f602b
+      internalID: -1092180394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steam_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 0
+        width: 166
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 319b29000c02b0c4eb997a22d0f4f88d
+      internalID: -1892557188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steam_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 0
+        width: 166
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8e71379dce212249aa2715a471140c3
+      internalID: 181241578
       vertices: []
       indices: 
       edges: []
@@ -238,11 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FuseBox_Sheet_0: -1819933278
-      FuseBox_Sheet_1: 1898788666
-      FuseBox_Sheet_2: -171893949
-      FuseBox_Sheet_3: 1790382741
-      FuseBox_Sheet_4: -1575874343
+      Steam_Sheet_0: 966912158
+      Steam_Sheet_1: -468572523
+      Steam_Sheet_2: -909825556
+      Steam_Sheet_3: 1131464395
+      Steam_Sheet_4: -1388734892
+      Steam_Sheet_5: -1092180394
+      Steam_Sheet_6: -1892557188
+      Steam_Sheet_7: 181241578
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
