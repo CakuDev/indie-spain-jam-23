@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackBehaviour : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject attackCollider;
 
     [HideInInspector] public bool canAttack = true;
 
@@ -22,5 +23,6 @@ public class AttackBehaviour : MonoBehaviour
     {
         canAttack = true;
         animator.SetBool("attack", false);
+        //attackCollider.SetActive(false);
     }
 }

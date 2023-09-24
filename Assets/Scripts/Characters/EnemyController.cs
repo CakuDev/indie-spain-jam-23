@@ -18,57 +18,57 @@ public class EnemyController : AttackableController
 
     private void Update()
     {
-        if (animator.GetBool("death") || animator.GetBool("parried")) return;
+        //if (animator.GetBool("death") || animator.GetBool("parried")) return;
 
-        // After taking a decision, check if the status must change
-        if (ShouldChasePlayer())
-        {
-            status = EnemyStatus.MOVING;
-            // Move left or right depending on the enemy and player positions
-            movementBehaviour.canMove = true;
-            int direction = transform.position.x > PlayerController.Instance.transform.position.x ? -1 : 1;
-            movementBehaviour.direction = new(direction, 0);
-        } else if (ShouldDestroyCurrentRepairableItem())
-        {
-            movementBehaviour.canMove = false;
-            status = EnemyStatus.DESTROYING;
-            if (shouldInteract)
-            {
-                interactBehaviour.Interact();
-                shouldInteract = false;
-                Invoke(nameof(EnableInteraction), 1f);
-            }
-        } else if (ShouldMoveToCurrentRepairableItem())
-        {
-            status = EnemyStatus.MOVING;
-            // Move left or right depending on the enemy and repairable item positions
-            movementBehaviour.canMove = true;
-            int direction = transform.position.x > currentFloor.repairableItem.transform.position.x ? -1 : 1;
-            movementBehaviour.direction = new(direction, 0);
-        }
+        //// After taking a decision, check if the status must change
+        //if (ShouldChasePlayer())
+        //{
+        //    status = EnemyStatus.MOVING;
+        //    // Move left or right depending on the enemy and player positions
+        //    movementBehaviour.canMove = true;
+        //    int direction = transform.position.x > PlayerController.Instance.transform.position.x ? -1 : 1;
+        //    movementBehaviour.direction = new(direction, 0);
+        //} else if (ShouldDestroyCurrentRepairableItem())
+        //{
+        //    movementBehaviour.canMove = false;
+        //    status = EnemyStatus.DESTROYING;
+        //    if (shouldInteract)
+        //    {
+        //        interactBehaviour.Interact();
+        //        shouldInteract = false;
+        //        Invoke(nameof(EnableInteraction), 1f);
+        //    }
+        //} else if (ShouldMoveToCurrentRepairableItem())
+        //{
+        //    status = EnemyStatus.MOVING;
+        //    // Move left or right depending on the enemy and repairable item positions
+        //    movementBehaviour.canMove = true;
+        //    int direction = transform.position.x > currentFloor.repairableItem.transform.position.x ? -1 : 1;
+        //    movementBehaviour.direction = new(direction, 0);
+        //}
 
-        // If the enemy was hitting the player and he is death, ignore him
-        if (status == EnemyStatus.ATTACKING && PlayerController.Instance.currentLife <= 0)
-        {
-            status = EnemyStatus.MOVING;
-        }
+        //// If the enemy was hitting the player and he is death, ignore him
+        //if (status == EnemyStatus.ATTACKING && PlayerController.Instance.currentLife <= 0)
+        //{
+        //    status = EnemyStatus.MOVING;
+        //}
 
-        if (status == EnemyStatus.DESTROYING)
-        {
-            animator.SetBool("interact", true);
-            animator.SetBool("walk", false);
-            animator.SetBool("attack", false);
-            animator.SetBool("parried", false);
-        } else { 
-            animator.SetBool("interact", false);
-        }
+        //if (status == EnemyStatus.DESTROYING)
+        //{
+        //    animator.SetBool("interact", true);
+        //    animator.SetBool("walk", false);
+        //    animator.SetBool("attack", false);
+        //    animator.SetBool("parried", false);
+        //} else { 
+        //    animator.SetBool("interact", false);
+        //}
 
-        switch (status)
-        {
-            case EnemyStatus.ATTACKING:
-                attackBehaviour.Attack();
-                break;
-        }
+        //switch (status)
+        //{
+        //    case EnemyStatus.ATTACKING:
+        //        attackBehaviour.Attack();
+        //        break;
+        //}
     }
 
     private void FixedUpdate()
@@ -102,7 +102,7 @@ public class EnemyController : AttackableController
         if (transform.position.y < climbHeight) return;
         
         // Change to moving status, apply gravity and constraint rotation
-        status = EnemyStatus.MOVING;
+        //status = EnemyStatus.MOVING;
         enemyRb.bodyType = RigidbodyType2D.Dynamic;
         enemyRb.constraints = RigidbodyConstraints2D.FreezeRotation;
         
@@ -126,7 +126,7 @@ public class EnemyController : AttackableController
     // Called in the DetectPlayerBehaviour onExitTrigger
     public void OnPlayerCollisionExit()
     {
-        status = EnemyStatus.MOVING;
+       // status = EnemyStatus.MOVING;
     }
 
     public void ManageEndAttack()
@@ -190,6 +190,7 @@ public class EnemyController : AttackableController
         interactBehaviour.canInteract = false;
         attackBehaviour.canAttack = false;
 
+        Debug.Log("DEATH!");
         animator.SetBool("death", true);
         canBeHit = false;
     }

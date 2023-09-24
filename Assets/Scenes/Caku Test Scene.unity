@@ -205,7 +205,7 @@ MonoBehaviour:
   buttonToPressSprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   totalLife: 100
   life: 0
-  isBeingRepaired: 0
+  isBroken: 0
   lifeLight: {fileID: 277990687}
   itemGameObject: {fileID: 103097891}
   aliveSprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -592,7 +592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438907053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.39, y: -9.5, z: 0}
+  m_LocalPosition: {x: 9.39, y: -4.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -994,7 +994,11 @@ PrefabInstance:
     - target: {fileID: 4722613252827800, guid: 578136fe93b598c4fb658bda2d1de3d7, type: 3}
       propertyPath: currentFloor
       value: 
-      objectReference: {fileID: 627461923}
+      objectReference: {fileID: 0}
+    - target: {fileID: 537497075951535526, guid: 578136fe93b598c4fb658bda2d1de3d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4306905092929668997, guid: 578136fe93b598c4fb658bda2d1de3d7, type: 3}
       propertyPath: m_RootOrder
       value: -1

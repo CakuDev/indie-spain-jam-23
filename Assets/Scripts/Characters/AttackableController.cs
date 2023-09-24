@@ -21,8 +21,8 @@ public abstract class AttackableController : MonoBehaviour
         if (currentLife == 0 || !canBeHit) return;
 
         // Decrease life and do something depending on the remaining life
-        Debug.Log("HIT!");
         currentLife--;
+        Debug.Log($"HIT {currentLife}!");
         canBeHit = false;
         if (currentLife > 0) ManageHit();
         else ManageDeath();
