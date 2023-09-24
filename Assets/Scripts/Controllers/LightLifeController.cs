@@ -25,21 +25,30 @@ public class LightLifeController : MonoBehaviour
     public Sprite lightRed;
     public Sprite lightBroken;
 
+    //Lightbulb repairing section
+    public bool damagedLightbulb; //Checks if the lightbulb is broken
+    public bool hasLightbulb; //Bool to check if the character has a lightbulb to change the damaged one
+    public TimeAliveController timeController;
+
     public RepairableItemAttackController attackController;
 
     private void Start()
     {
         realLife = maxLife;
+        damagedLightbulb = false;
     }
 
     private void Update()
     {
-        if (timeCounter >= timeBetweenUpdates)
+        if (!damagedLightbulb)
         {
-            CheckHealth();
-            timeCounter = 0;
-        }
-        timeCounter += Time.deltaTime;       
+            if (timeCounter >= timeBetweenUpdates)
+            {
+                CheckHealth();
+                timeCounter = 0;
+            }
+            timeCounter += Time.deltaTime;
+        }         
     }
 
     private void CheckHealth()
@@ -98,10 +107,27 @@ public class LightLifeController : MonoBehaviour
         }
         else
         {
-            lightSprite.sprite = lightBroken;
-            Debug.Log("Game Over");
-            //Call here the EndGame Sequence
+            BreakLightBulb();
         }
+    }
+
+    public void BreakLightBulb()
+    {
+        damagedLightbulb = true;
+        Debug.Log("Broken Lightbulb Sequence Starts");
+        lightSprite.sprite = lightBroken;
+        //Aquí llamar a time controller para mostrar indicador de bombilla rota
+        timeController.LightbulbBroken();
+    }
+
+    //Script called from LightbulbPlacer OnInteract, when having equipped a lightbulb
+    public void RestoreLightBulb()
+    {
+        timeController.LightbulbRestored();
+        hasLightbulb = false;
+        realLife = maxLife;
+        CheckStatus();
+        damagedLightbulb = false;
     }
 
 }
