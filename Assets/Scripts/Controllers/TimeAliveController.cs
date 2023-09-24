@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class TimeAliveController : MonoBehaviour
 {
     public TextMeshProUGUI textoTiempo; //Countdown text
+    public float gameDuration;//Time that has passed since the game started, it serves to determine when the game reachs the good ending
     public float time;//Time that has passed since the game started, it serves to determine when the game reachs the good ending
 
     //BROKEN LIGHTBULB SECTION
@@ -20,7 +21,7 @@ public class TimeAliveController : MonoBehaviour
     public void Start()
     {
         //NORMAL COUNTDOWN SECTION
-        time = 0;
+        time = gameDuration;
         int minutos = Mathf.Max(Mathf.FloorToInt(time / 60), 0);     //minutes
         int segundos = Mathf.Max(Mathf.FloorToInt(time % 60), 0);    //seconds
         if (segundos >= 10) textoTiempo.text = minutos + ":" + segundos;  //if seconds>10, concatenation
@@ -34,13 +35,18 @@ public class TimeAliveController : MonoBehaviour
     public void Update()
     {
         //NORMAL COUNTDOWN SECTION
-        time += Time.deltaTime; //updating current time value
+        time -= Time.deltaTime; //updating current time value
 
         //parseo del tiempo a formato contador
         int minutos = Mathf.Max(Mathf.FloorToInt(time / 60), 0);     //minutes
         int segundos = Mathf.Max(Mathf.FloorToInt(time % 60), 0);    //seconds
         if (segundos >= 10) textoTiempo.text = minutos + ":" + segundos;                    //if seconds>10, concatenation
         else textoTiempo.text = minutos + ":" + "0" + segundos;                             //if seconds<10, we add a 0 for for correct formart, then concatenation
+
+        if (time <= 0)
+        {
+            NightCompleted();
+        }
 
         //BROKEN LIGHTBULB SECTION
         if (lightbulbBroken)
@@ -55,8 +61,7 @@ public class TimeAliveController : MonoBehaviour
 
             if (lightbulbCountdownTimer <= 0)
             {
-                Debug.Log("-----------  GAME OVER ------------");
-                SceneManager.LoadScene("GameOver");
+                GameOver();
             }
         }
 
@@ -74,5 +79,17 @@ public class TimeAliveController : MonoBehaviour
         lightbulbCountdownTimer = lightbulbCountdownTotalTime;
         brokenLightbulbCountdown.SetActive(false);
         lightbulbBroken = false;
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("-----------  GAME OVER ------------");
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public void NightCompleted()
+    {
+        Debug.Log("----------- NIGHT COMPLETED ------------");
+        SceneManager.LoadScene("NightCompleted");
     }
 }

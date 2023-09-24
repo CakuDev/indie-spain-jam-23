@@ -2790,6 +2790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoTiempo: {fileID: 1676810972}
+  gameDuration: 65
   time: 0
   brokenLightbulbCountdown: {fileID: 1690703581}
   lightbulbCountdownText: {fileID: 1340890192}
