@@ -52,7 +52,6 @@ public class RepairableItemAttackController : MonoBehaviour
             //we attack the item with damageVariability
             float damageQuantity = Mathf.Abs(Random.Range(damagePerAttack - damageVariability, damagePerAttack + damageVariability));
             unrepairingItems[itemIndex].ChangeLife(-1 * damageQuantity);
-            Debug.Log("A hacking attack was produced against " + unrepairingItems[itemIndex].name + " of " + damageQuantity);
         }
         
     }

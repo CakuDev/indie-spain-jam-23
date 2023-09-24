@@ -15,7 +15,6 @@ public class InteractBehaviour : MonoBehaviour
 
     public void Interact()
     {
-        Debug.Log("INTERACTING!");
         if (!canInteract || interactiveObject == null) return;
         
         interactiveObject.OnInteract(this);
