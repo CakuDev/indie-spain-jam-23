@@ -7,9 +7,9 @@ public abstract class AttackableController : MonoBehaviour
     [SerializeField] private int totalLife;
     [SerializeField] protected Animator animator;
 
-    public int currentLife { get; private set; }
+    public int currentLife;
 
-    public bool canBeHit { get; protected set; } = true;
+    public bool canBeHit = true;
 
     protected void ResetLife()
     {

@@ -23,6 +23,5 @@ public class AttackBehaviour : MonoBehaviour
     {
         canAttack = true;
         animator.SetBool("attack", false);
-        //attackCollider.SetActive(false);
     }
 }
