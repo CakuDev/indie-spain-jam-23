@@ -7,4 +7,5 @@ public class FloorController : MonoBehaviour
     public RepairableItemBehaviour repairableItem;
     public Transform leftEntrancePosition;
     public Transform rightEntrancePosition;
+    public List<TeleportObjectBehaviour> tpObjects;
 }

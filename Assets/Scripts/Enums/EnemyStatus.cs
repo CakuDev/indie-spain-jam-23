@@ -5,7 +5,12 @@ using UnityEngine;
 public enum EnemyStatus
 {
     CLIMBING,
-    MOVING,
     ATTACKING,
-    DESTROYING
+    CHASING_PLAYER,
+    DESTROYING,
+    MOVING_TO_DESTROY,
+    MOVING_TO_CHANGE_FLOOR,
+    CHANGE_FLOOR,
+    PARRIED, 
+    DYING
 }

@@ -7,9 +7,10 @@ public abstract class AttackableController : MonoBehaviour
     [SerializeField] private int totalLife;
     [SerializeField] protected Animator animator;
 
-    public int currentLife { get; private set; }
+    public int currentLife;
 
-    public bool canBeHit { get; protected set; } = true;
+    public bool canBeHit = true;
+    public FloorController currentFloor;
 
     protected void ResetLife()
     {
@@ -18,11 +19,12 @@ public abstract class AttackableController : MonoBehaviour
 
     public void OnHit()
     {
+        Debug.Log($"{gameObject.name} MAYBE HIT...");
         if (currentLife == 0 || !canBeHit) return;
 
         // Decrease life and do something depending on the remaining life
-        Debug.Log("HIT!");
         currentLife--;
+        Debug.Log($"HIT {currentLife}!");
         canBeHit = false;
         if (currentLife > 0) ManageHit();
         else ManageDeath();

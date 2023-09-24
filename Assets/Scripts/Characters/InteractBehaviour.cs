@@ -6,7 +6,6 @@ public class InteractBehaviour : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
-    [HideInInspector]
     public InteractiveObjectBehaviour interactiveObject;
 
     public float healOrDamagingLife;
