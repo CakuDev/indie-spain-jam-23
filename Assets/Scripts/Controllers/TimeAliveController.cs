@@ -18,6 +18,8 @@ public class TimeAliveController : MonoBehaviour
     private float lightbulbCountdownTimer; //actual countdown of changing the lightbulb
     private bool lightbulbBroken;
 
+    //Music
+
     public void Start()
     {
         //NORMAL COUNTDOWN SECTION
