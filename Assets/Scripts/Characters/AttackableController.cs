@@ -10,6 +10,7 @@ public abstract class AttackableController : MonoBehaviour
     public int currentLife;
 
     public bool canBeHit = true;
+    public FloorController currentFloor;
 
     protected void ResetLife()
     {

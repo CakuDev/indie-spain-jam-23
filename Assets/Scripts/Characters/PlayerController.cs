@@ -15,8 +15,6 @@ public class PlayerController : AttackableController
     [SerializeField] private InteractBehaviour interactBehaviour;
     [SerializeField] private HoldItemBehaviour holdItemBehaviour;
     
-    public FloorController currentFloor;
-
     private void Awake()
     {
         // Singleton logic

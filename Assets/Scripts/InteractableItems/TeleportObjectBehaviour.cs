@@ -11,6 +11,8 @@ public class TeleportObjectBehaviour : InteractiveObjectBehaviour
 
     public float tweeningDuration;
 
+    public FloorController floorToTp;
+
     private void Start()
     {
         DOTween.Init();
@@ -22,5 +24,7 @@ public class TeleportObjectBehaviour : InteractiveObjectBehaviour
         interactBehaviour.transform.position = objectToTeleport.position;
         Vector3 newPos = new Vector3(cameraPosition.position.x, cameraPosition.position.y, Camera.main.transform.position.z);
         Camera.main.transform.DOMove(newPos, tweeningDuration);
+
+        interactBehaviour.GetComponent<AttackableController>().currentFloor = floorToTp;
     }
 }

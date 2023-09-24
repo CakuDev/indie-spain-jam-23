@@ -13,12 +13,12 @@ public class EnemyController : AttackableController
 
     private float climbHeight;
     public EnemyStatus state;
-    public FloorController currentFloor;
     private bool playerInAttackRange = false;
     private TeleportObjectBehaviour tpObjectToMove;
     private float attackAnimLength;
     private float parriedAnimLength;
     private float deathAnimLength;
+    private bool canChangeFloor;
 
     private void Start()
     {
@@ -100,6 +100,13 @@ public class EnemyController : AttackableController
             return;
         }
 
+        // 7. Enter door
+        if(ShouldEnterDoor())
+        {
+            state = EnemyStatus.CHANGE_FLOOR;
+            return;
+        }
+
         // 6. Change floor
         state = EnemyStatus.MOVING_TO_CHANGE_FLOOR;
     }
@@ -140,9 +147,14 @@ public class EnemyController : AttackableController
                 break;
 
             case EnemyStatus.CHANGE_FLOOR:
-                movementBehaviour.canMove = false;
-                interactBehaviour.Interact();
-                tpObjectToMove = null;
+                if (!canChangeFloor)
+                {
+                    movementBehaviour.canMove = false;
+                    interactBehaviour.Interact();
+                    tpObjectToMove = null;
+                    canChangeFloor = false;
+                    Invoke(nameof(EnableChangeFloor), 2f);
+                }
                 break;
         }
     }
@@ -239,6 +251,14 @@ public class EnemyController : AttackableController
         return currentFloor.repairableItem.life > 0;
     }
 
+    public bool ShouldEnterDoor()
+    {
+        // tpObjectToMove is not null and can interact with it
+        return tpObjectToMove != null
+            && interactBehaviour.interactiveObject != null
+            && interactBehaviour.interactiveObject == tpObjectToMove;
+    }
+
     private void Climb()
     {
         if (transform.position.y < climbHeight)
@@ -257,6 +277,11 @@ public class EnemyController : AttackableController
         movementBehaviour.direction = transform.localScale.x == 1 ? Vector2.right : Vector2.left;
         animator.SetBool("climb", false);
         animator.SetBool("walk", false);
+    }
+
+    private void EnableChangeFloor()
+    {
+        canChangeFloor = true;
     }
 
     private void DisableAllAnimationParameters()
