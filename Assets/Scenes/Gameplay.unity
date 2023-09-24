@@ -2021,6 +2021,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1330612707031271424, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
+      propertyPath: damagePerAttack
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330612707031271424, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
+      propertyPath: damageVariability
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330612707031271424, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330612707031271424, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
       propertyPath: repairableItems.Array.data[0]
       value: 
       objectReference: {fileID: 1251831294}
@@ -2036,6 +2048,18 @@ PrefabInstance:
       propertyPath: repairableItems.Array.data[3]
       value: 
       objectReference: {fileID: 821772908}
+    - target: {fileID: 4576826963247937534, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
+      propertyPath: redCof
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576826963247937534, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
+      propertyPath: yellowCof
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576826963247937534, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
+      propertyPath: brokenCof2
+      value: 0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 4576826963247937534, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
       propertyPath: audioSource
       value: 
@@ -2112,7 +2136,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7879878940532824236, guid: ac31e3a1ce5a1cf4ab543ac3e56245b3, type: 3}
   enemyContainer: {fileID: 51754705}
   isLeftSpawner: 0
-  secondsToSpawn: 5
+  secondsToSpawn: 7
 --- !u!114 &622924694 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4576826963247937534, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
@@ -3513,7 +3537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoTiempo: {fileID: 1676810972}
-  gameDuration: 323.8
+  gameDuration: 180
   time: 0
   brokenLightbulbCountdown: {fileID: 1690703581}
   lightbulbCountdownText: {fileID: 1340890192}
