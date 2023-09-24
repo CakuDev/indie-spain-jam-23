@@ -1416,12 +1416,15 @@ PrefabInstance:
       objectReference: {fileID: 622924691}
     - target: {fileID: 5702686187439142781, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
       propertyPath: m_Name
-      value: ItemController
+      value: GameController
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5702686187439142781, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 622924693}
   m_SourcePrefab: {fileID: 100100000, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
 --- !u!4 &622924690 stripped
 Transform:
@@ -1433,12 +1436,37 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1330612707031271424, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
   m_PrefabInstance: {fileID: 622924689}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 622924692}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cef97bbcdb649aa42af3a10f6de25b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &622924692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5702686187439142781, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
+  m_PrefabInstance: {fileID: 622924689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &622924693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622924692}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572abfbae3537e44296107a023f9c793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floors:
+  - {fileID: 1078495176}
+  - {fileID: 249376040}
+  - {fileID: 1192692889}
+  enemyPrefab: {fileID: 7879878940532824236, guid: ac31e3a1ce5a1cf4ab543ac3e56245b3, type: 3}
+  enemyContainer: {fileID: 51754705}
+  isLeftSpawner: 0
+  secondsToSpawn: 5
 --- !u!1 &639067624
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,7 +2369,7 @@ GameObject:
   - component: {fileID: 1094806401}
   - component: {fileID: 1094806402}
   m_Layer: 0
-  m_Name: TimeAliveController
+  m_Name: TimeController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
