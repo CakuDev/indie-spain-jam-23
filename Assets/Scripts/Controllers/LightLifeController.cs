@@ -30,6 +30,11 @@ public class LightLifeController : MonoBehaviour
     public bool hasLightbulb; //Bool to check if the character has a lightbulb to change the damaged one
     public TimeAliveController timeController;
 
+    //Audio Controller
+    public AudioClip normalTheme;
+    public AudioClip dangerousBoatTheme;
+    public AudioSource audioSource;
+
     public RepairableItemAttackController attackController;
 
     private void Start()
@@ -113,6 +118,9 @@ public class LightLifeController : MonoBehaviour
 
     public void BreakLightBulb()
     {
+        audioSource.Pause();
+        audioSource.clip = dangerousBoatTheme;
+        audioSource.Play();
         damagedLightbulb = true;
         Debug.Log("Broken Lightbulb Sequence Starts");
         lightSprite.sprite = lightBroken;
@@ -123,6 +131,9 @@ public class LightLifeController : MonoBehaviour
     //Script called from LightbulbPlacer OnInteract, when having equipped a lightbulb
     public void RestoreLightBulb()
     {
+        audioSource.Pause();
+        audioSource.clip = normalTheme;
+        audioSource.Play();
         timeController.LightbulbRestored();
         hasLightbulb = false;
         realLife = maxLife;

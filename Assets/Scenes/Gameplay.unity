@@ -1737,9 +1737,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 821772908}
     - target: {fileID: 4576826963247937534, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 672113737}
+    - target: {fileID: 4576826963247937534, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
       propertyPath: lightSprite
       value: 
       objectReference: {fileID: 587906741}
+    - target: {fileID: 4576826963247937534, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
+      propertyPath: normalTheme
+      value: 
+      objectReference: {fileID: 8300000, guid: fd732208bef15ad45873ecbdd73b4c91, type: 3}
     - target: {fileID: 4576826963247937534, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
       propertyPath: timeController
       value: 
@@ -1748,6 +1756,10 @@ PrefabInstance:
       propertyPath: attackController
       value: 
       objectReference: {fileID: 622924691}
+    - target: {fileID: 4576826963247937534, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
+      propertyPath: dangerousBoatTheme
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e388f1c7e09d0d498af019fb537491b, type: 3}
     - target: {fileID: 5702686187439142781, guid: 917ce8fe1618c5840b5cece4c9351250, type: 3}
       propertyPath: m_Name
       value: GameController
@@ -3060,7 +3072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoTiempo: {fileID: 1676810972}
-  gameDuration: 65
+  gameDuration: 323.8
   time: 0
   brokenLightbulbCountdown: {fileID: 1690703581}
   lightbulbCountdownText: {fileID: 1340890192}
@@ -5162,7 +5174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7800677609212583638, guid: 85d550cae4d24f7469fd2f8fdc746b9d, type: 3}
       propertyPath: m_Size.x
-      value: 2.7391777
+      value: 1.3669848
       objectReference: {fileID: 0}
     - target: {fileID: 7800677609212583638, guid: 85d550cae4d24f7469fd2f8fdc746b9d, type: 3}
       propertyPath: m_Size.y
@@ -5170,7 +5182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7800677609212583638, guid: 85d550cae4d24f7469fd2f8fdc746b9d, type: 3}
       propertyPath: m_Offset.x
-      value: -0.19732428
+      value: -0.25698498
       objectReference: {fileID: 0}
     - target: {fileID: 7800677609212583638, guid: 85d550cae4d24f7469fd2f8fdc746b9d, type: 3}
       propertyPath: m_Offset.y
