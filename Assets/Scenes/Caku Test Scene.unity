@@ -206,6 +206,7 @@ MonoBehaviour:
   totalLife: 100
   life: 0
   isBroken: 0
+  status: 0
   lifeLight: {fileID: 277990687}
   itemGameObject: {fileID: 103097891}
   aliveSprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -666,6 +667,7 @@ MonoBehaviour:
   repairableItem: {fileID: 103097893}
   leftEntrancePosition: {fileID: 0}
   rightEntrancePosition: {fileID: 0}
+  tpObjects: []
 --- !u!1 &764569117
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,11 +996,7 @@ PrefabInstance:
     - target: {fileID: 4722613252827800, guid: 578136fe93b598c4fb658bda2d1de3d7, type: 3}
       propertyPath: currentFloor
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 537497075951535526, guid: 578136fe93b598c4fb658bda2d1de3d7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 627461923}
     - target: {fileID: 4306905092929668997, guid: 578136fe93b598c4fb658bda2d1de3d7, type: 3}
       propertyPath: m_RootOrder
       value: -1

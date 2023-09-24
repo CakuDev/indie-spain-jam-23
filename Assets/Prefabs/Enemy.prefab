@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.13964236, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7463803, y: 2.0696125}
+  m_Size: {x: 1.025665, y: 2.0696125}
   m_EdgeRadius: 0
 --- !u!114 &4243530722781585094
 MonoBehaviour:
@@ -156,7 +156,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10860133, y: 0}
+  m_Offset: {x: -0.24824363, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -167,7 +167,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.52917767, y: 2.0696125}
+  m_Size: {x: 0.80846226, y: 2.0696125}
   m_EdgeRadius: 0
 --- !u!114 &8832803871400675071
 MonoBehaviour:
@@ -289,13 +289,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalLife: 1
   animator: {fileID: 3078741380778245726}
+  currentLife: 0
+  canBeHit: 1
   movementBehaviour: {fileID: 5808109871736964177}
   attackBehaviour: {fileID: 6936737573975116618}
   interactBehaviour: {fileID: 4634092797419414732}
   enemyRb: {fileID: 247582714628622261}
   climbingSpeed: 2
   walkingSpeed: 4
-  status: 0
+  state: 0
   currentFloor: {fileID: 0}
 --- !u!114 &5808109871736964177
 MonoBehaviour:
@@ -390,7 +392,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &1014686416478684085

@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03946975, y: 0}
+  m_Offset: {x: -0.10352647, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8253198, y: 2.0696125}
+  m_Size: {x: 1.1113122, y: 2.0696125}
   m_EdgeRadius: 0
 --- !u!114 &2401422651614560702
 MonoBehaviour:
@@ -132,7 +132,7 @@ Transform:
   - {fileID: 5077864665959785238}
   - {fileID: 8097146802148511252}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4113063494687552647
 SpriteRenderer:
@@ -200,6 +200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalLife: 3
   animator: {fileID: 8712275498696209785}
+  currentLife: 0
+  canBeHit: 1
   input: {fileID: 11400000, guid: 7ce1338a9dc79f447bb69c311cbdcc3e, type: 2}
   movementBehaviour: {fileID: 9042760853631115681}
   attackBehaviour: {fileID: 2503803367531744142}
@@ -373,7 +375,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &7003869440914185616
@@ -441,7 +443,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.1469683, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -452,7 +454,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7463803, y: 2.0696125}
+  m_Size: {x: 1.0403168, y: 2.0696125}
   m_EdgeRadius: 0
 --- !u!114 &4509128720407699592
 MonoBehaviour:

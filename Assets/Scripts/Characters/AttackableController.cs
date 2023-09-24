@@ -18,6 +18,7 @@ public abstract class AttackableController : MonoBehaviour
 
     public void OnHit()
     {
+        Debug.Log($"{gameObject.name} MAYBE HIT...");
         if (currentLife == 0 || !canBeHit) return;
 
         // Decrease life and do something depending on the remaining life

@@ -307,6 +307,8 @@ public class EnemyController : AttackableController
 
     protected override void ManageDeath()
     {
+        state = EnemyStatus.DYING;
+
         // Block actions
         movementBehaviour.canMove = false;
         interactBehaviour.canInteract = false;
