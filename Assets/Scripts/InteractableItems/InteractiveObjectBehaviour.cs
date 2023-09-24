@@ -6,11 +6,20 @@ public abstract class InteractiveObjectBehaviour : MonoBehaviour
 {
     public Sprite buttonToPressSprite;
 
+    public GameObject keyToPress;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<InteractBehaviour>())
         {
-                collision.gameObject.GetComponent<InteractBehaviour>().interactiveObject = this;
+            collision.gameObject.GetComponent<InteractBehaviour>().interactiveObject = this;
+
+            if (keyToPress != null)
+            {
+                keyToPress.GetComponent<SpriteRenderer>().sprite = buttonToPressSprite;
+                keyToPress.SetActive(true);
+            }
+
         }
     }
 
@@ -19,6 +28,10 @@ public abstract class InteractiveObjectBehaviour : MonoBehaviour
         if (collision.gameObject.GetComponent<InteractBehaviour>())
         {
             collision.gameObject.GetComponent<InteractBehaviour>().interactiveObject = null;
+            if (keyToPress != null)
+            {
+                keyToPress.SetActive(false);
+            }
         }
     }
 
