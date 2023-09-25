@@ -827,8 +827,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.1704, y: -5.0193014}
-  m_SizeDelta: {x: 720.9193, y: 343.015}
+  m_AnchoredPosition: {x: 21.2087, y: -5.0193014}
+  m_SizeDelta: {x: 808.0168, y: 343.015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &355191074
 MonoBehaviour:
@@ -851,7 +851,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Isa \"Isattorney\" Arrans: Programaci\xF3n\r\nDiego \"CakuDev\" Crespo:
-    Programaci\xF3n\r, artista t\xE9cnico\nV\xEDktor \"CaketheSnake\" Anta: Pixelart,
+    Programaci\xF3n, artista t\xE9cnico\nV\xEDktor \"CaketheSnake\" Anta: Pixelart,
     artista t\xE9cnico, VFX\nNatasha \"Zafirity\" Fari\xF1a: Pixelart, UI\r\nMois\xE9s
     \"Semoi\" Rodriguez: Sonido\r\nJuan \"Quilloprods\" de Nascimento: M\xFAsica"
   m_isRightToLeft: 0
@@ -2116,8 +2116,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.7, y: -6}
-  m_SizeDelta: {x: 720.9193, y: 341.05}
+  m_AnchoredPosition: {x: 23.9, y: -6.3}
+  m_SizeDelta: {x: 808.0168, y: 343.015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1114755934
 MonoBehaviour:
@@ -2140,7 +2140,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Isa \"Isattorney\" Arrans: Programaci\xF3n\r\nDiego \"CakuDev\" Crespo:
-    Programaci\xF3n\r, artista t\xE9cnico\nV\xEDktor \"CaketheSnake\" Anta: Pixelart,
+    Programaci\xF3n, artista t\xE9cnico\nV\xEDktor \"CaketheSnake\" Anta: Pixelart,
     artista t\xE9cnico, VFX\nNatasha \"Zafirity\" Fari\xF1a: Pixelart, UI\r\nMois\xE9s
     \"Semoi\" Rodriguez: Sonido\r\nJuan \"Quilloprods\" de Nascimento: M\xFAsica"
   m_isRightToLeft: 0
