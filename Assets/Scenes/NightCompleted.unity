@@ -253,7 +253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8494986162098390347, guid: 06b1eca31f03d914d8840851a8b7abfa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -323
+      value: -305
       objectReference: {fileID: 0}
     - target: {fileID: 8494986162098390347, guid: 06b1eca31f03d914d8840851a8b7abfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -342,7 +342,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.99951196
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -868,7 +868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8494986162098390347, guid: 06b1eca31f03d914d8840851a8b7abfa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -194.19229
+      value: -134
       objectReference: {fileID: 0}
     - target: {fileID: 8494986162098390347, guid: 06b1eca31f03d914d8840851a8b7abfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
