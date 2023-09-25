@@ -14,7 +14,7 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
     public ItemStatus status;
 
     //UI Attributes
-    public GameObject lifeLight;
+    public List<GameObject> lifeLight;
     public GameObject itemGameObject;
     public Sprite aliveSprite;
     public Sprite brokenSprite;
@@ -52,7 +52,7 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
             if (!isBroken)
             {
                 //Change Light to green color
-                lifeLight.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0);
+                lifeLight.ForEach(light => light.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0));
                 transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
                 status = ItemStatus.GREEN;
             } else
@@ -60,7 +60,7 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
                 if (lifePercentage == 100)
                 {
                     isBroken = true;
-                    lifeLight.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0);
+                    lifeLight.ForEach(light => light.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0));
                     transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
                     status = ItemStatus.GREEN;
                 }
@@ -69,21 +69,21 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
         else if (lifePercentage > 33.3f && lifePercentage <= 66.6f && !isBroken)
         {
             //Change Light to yellow color
-            lifeLight.GetComponent<SpriteRenderer>().color = new Color(255, 255, 0);
+            lifeLight.ForEach(light => light.GetComponent<SpriteRenderer>().color = new Color(255, 255, 0));
             transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
             status = ItemStatus.YELLOW;
         }
         else if (lifePercentage > 0 && lifePercentage <= 33.3f && !isBroken)
         {
             //Change Light to red color
-            lifeLight.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+            lifeLight.ForEach(light => light.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0));
             transform.GetComponent<SpriteRenderer>().sprite = aliveSprite;
             status = ItemStatus.RED;
         }
         else
         {
             //Turn off light and sprite broken
-            lifeLight.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+            lifeLight.ForEach(light => light.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0));
             transform.GetComponent<SpriteRenderer>().sprite = brokenSprite;
             isBroken = true;
             status = ItemStatus.BROKEN;

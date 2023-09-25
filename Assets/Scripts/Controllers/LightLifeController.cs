@@ -24,6 +24,7 @@ public class LightLifeController : MonoBehaviour
     public Sprite lightYellow;
     public Sprite lightRed;
     public Sprite lightBroken;
+    public List<SpriteRenderer> lifeLight;
 
     //Lightbulb repairing section
     public bool damagedLightbulb; //Checks if the lightbulb is broken
@@ -101,14 +102,17 @@ public class LightLifeController : MonoBehaviour
         if (lifePercentage > 66.6f && lifePercentage <= 100)
         {
             lightSprite.sprite = lightGreen;
+            lifeLight.ForEach(light => light.color = new Color(0, 255, 0));
         }                    
         else if (lifePercentage > 33.3f && lifePercentage <= 66.6f)
         {
             lightSprite.sprite = lightYellow;
+            lifeLight.ForEach(light => light.color = new Color(255, 255, 0));
         }
         else if (lifePercentage > 0 && lifePercentage <= 33.3f)
         {
             lightSprite.sprite = lightRed;
+            lifeLight.ForEach(light => light.color = new Color(255, 0, 0));
         }
         else
         {
@@ -124,6 +128,7 @@ public class LightLifeController : MonoBehaviour
         damagedLightbulb = true;
         Debug.Log("Broken Lightbulb Sequence Starts");
         lightSprite.sprite = lightBroken;
+        lifeLight.ForEach(light => light.color = new Color(0, 0, 0));
         //Aquí llamar a time controller para mostrar indicador de bombilla rota
         timeController.LightbulbBroken();
     }

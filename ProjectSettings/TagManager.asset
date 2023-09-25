@@ -49,3 +49,9 @@ TagManager:
   - name: Characters
     uniqueID: 527639941
     locked: 0
+  - name: Cliff
+    uniqueID: 4037186789
+    locked: 0
+  - name: UI
+    uniqueID: 628511667
+    locked: 0
