@@ -14,7 +14,7 @@ public abstract class InteractiveObjectBehaviour : MonoBehaviour
         {
             collision.gameObject.GetComponent<InteractBehaviour>().interactiveObject = this;
 
-            if (keyToPress != null)
+            if (keyToPress != null && collision.CompareTag("Player"))
             {
                 keyToPress.GetComponent<SpriteRenderer>().sprite = buttonToPressSprite;
                 keyToPress.SetActive(true);
@@ -28,7 +28,7 @@ public abstract class InteractiveObjectBehaviour : MonoBehaviour
         if (collision.gameObject.GetComponent<InteractBehaviour>())
         {
             collision.gameObject.GetComponent<InteractBehaviour>().interactiveObject = null;
-            if (keyToPress != null)
+            if (keyToPress != null && collision.CompareTag("Player"))
             {
                 keyToPress.SetActive(false);
             }

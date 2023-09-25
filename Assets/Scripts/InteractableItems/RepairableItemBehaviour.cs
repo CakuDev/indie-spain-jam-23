@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class RepairableItemBehaviour : InteractiveObjectBehaviour
 {
@@ -17,7 +18,7 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
     public List<GameObject> lifeLight;
     public GameObject itemGameObject;
     public Animator animator;
-
+    public Animator repairParticleAnimator;
     private void Start()
     {
         //We start the game with full life
@@ -91,7 +92,13 @@ public class RepairableItemBehaviour : InteractiveObjectBehaviour
 
     public override void OnInteract(InteractBehaviour interactBehaviour)
     {
-        ChangeLife(interactBehaviour.healOrDamagingLife);       
+        ChangeLife(interactBehaviour.healOrDamagingLife);
+
+        // Heal and not full life
+        if(interactBehaviour.healOrDamagingLife > 0 && life < totalLife)
+        {
+            repairParticleAnimator.Play("Repair");
+        }
     }
 
 }

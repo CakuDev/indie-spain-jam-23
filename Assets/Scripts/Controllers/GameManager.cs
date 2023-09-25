@@ -15,11 +15,13 @@ public class GameManager : MonoBehaviour
 
     private void HandlePause()
     {
+        Time.timeScale = 0;
         pauseMenu.SetActive(true);
     }
 
     private void HandleResume()
     {
+        Time.timeScale = 1;
         pauseMenu.SetActive(false);
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Rendering.Universal;
 public class LightLifeController : MonoBehaviour
 {
     public float maxLife;
@@ -133,6 +133,7 @@ public class LightLifeController : MonoBehaviour
         Debug.Log("Broken Lightbulb Sequence Starts");
         lightSprite.sprite = lightBroken;
         lifeLight.ForEach(light => light.color = new Color(0, 0, 0));
+        lifeLight.ForEach(light => light.GetComponentInChildren<Light2D>().color = new Color(0, 0, 0));
         lighthouseLights.SetInteger("lifeLevel", 3);
         //Aquí llamar a time controller para mostrar indicador de bombilla rota
         timeController.LightbulbBroken();

@@ -18,7 +18,7 @@ public class EnemyController : AttackableController
     private float attackAnimLength;
     private float parriedAnimLength;
     private float deathAnimLength;
-    private bool canChangeFloor;
+    private bool canChangeFloor = true;
 
     private void Start()
     {
@@ -148,7 +148,7 @@ public class EnemyController : AttackableController
                 break;
 
             case EnemyStatus.CHANGE_FLOOR:
-                if (!canChangeFloor)
+                if (canChangeFloor && interactBehaviour.interactiveObject != null)
                 {
                     movementBehaviour.canMove = false;
                     interactBehaviour.Interact();
