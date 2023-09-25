@@ -348,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3078741380778245726}
   interactiveObject: {fileID: 0}
-  healOrDamagingLife: -3
+  healOrDamagingLife: -4
   canInteract: 1
 --- !u!95 &3078741380778245726
 Animator:
