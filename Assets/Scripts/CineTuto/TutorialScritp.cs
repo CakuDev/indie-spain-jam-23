@@ -9,6 +9,9 @@ public class TutorialScritp : MonoBehaviour
     private int index = 0;
     private bool canShowTutorial;
 
+    [SerializeField] private GameObject leftArrow;
+    [SerializeField] private GameObject rightArrow;
+
     public void ChangeScene()
     {
         SceneManager.LoadScene("Gameplay");
@@ -24,6 +27,9 @@ public class TutorialScritp : MonoBehaviour
         tutoriales[index].SetActive(false);
         index++;
         tutoriales[index].SetActive(true);
+
+        if (index == tutoriales.Count - 1) rightArrow.SetActive(false);
+        leftArrow.SetActive(true);
     }
 
     private void ShowNextTutoL()
@@ -31,6 +37,9 @@ public class TutorialScritp : MonoBehaviour
         tutoriales[index].SetActive(false);
         index--;
         tutoriales[index].SetActive(true);
+
+        if (index == 0) leftArrow.SetActive(false);
+        rightArrow.SetActive(true);
     }
 
     public void RightButton()
