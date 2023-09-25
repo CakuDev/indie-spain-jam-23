@@ -3124,6 +3124,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1492384636}
+    - target: {fileID: 7869603646603764621, guid: 06b1eca31f03d914d8840851a8b7abfa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Cinematica
+      objectReference: {fileID: 0}
     - target: {fileID: 8494986162098390347, guid: 06b1eca31f03d914d8840851a8b7abfa, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

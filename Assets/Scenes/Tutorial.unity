@@ -507,7 +507,7 @@ PrefabInstance:
     - target: {fileID: 7869603646603764621, guid: 06b1eca31f03d914d8840851a8b7abfa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1106416257}
+      objectReference: {fileID: 1602697940}
     - target: {fileID: 7869603646603764621, guid: 06b1eca31f03d914d8840851a8b7abfa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangeScene
@@ -611,7 +611,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4263900859788477995, guid: 06b1eca31f03d914d8840851a8b7abfa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1602697940}
   m_SourcePrefab: {fileID: 100100000, guid: 06b1eca31f03d914d8840851a8b7abfa, type: 3}
 --- !u!224 &270416017 stripped
 RectTransform:
@@ -1100,7 +1103,6 @@ GameObject:
   - component: {fileID: 1106416256}
   - component: {fileID: 1106416255}
   - component: {fileID: 1106416254}
-  - component: {fileID: 1106416257}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -1172,7 +1174,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1106416257}
+      - m_Target: {fileID: 1602697940}
         m_TargetAssemblyTypeName: TutorialScritp, Assembly-CSharp
         m_MethodName: RightButton
         m_Mode: 1
@@ -1222,22 +1224,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106416252}
   m_CullTransparentMesh: 1
---- !u!114 &1106416257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106416252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a99a111d404922849bc645bbf73c6f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutoriales:
-  - {fileID: 100895465}
-  - {fileID: 338907934}
-  - {fileID: 1834912909}
 --- !u!1 &1142532770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,7 +1479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1297207561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1558,7 +1544,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1106416257}
+      - m_Target: {fileID: 1602697940}
         m_TargetAssemblyTypeName: TutorialScritp, Assembly-CSharp
         m_MethodName: LeftButton
         m_Mode: 1
@@ -1744,6 +1730,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582435104}
   m_CullTransparentMesh: 1
+--- !u!1 &1602697939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4263900859788477995, guid: 06b1eca31f03d914d8840851a8b7abfa, type: 3}
+  m_PrefabInstance: {fileID: 270416016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1602697940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602697939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99a111d404922849bc645bbf73c6f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutoriales:
+  - {fileID: 100895465}
+  - {fileID: 338907934}
+  - {fileID: 1834912909}
+  leftArrow: {fileID: 1297207560}
+  rightArrow: {fileID: 1106416252}
 --- !u!1 &1714136710
 GameObject:
   m_ObjectHideFlags: 0
