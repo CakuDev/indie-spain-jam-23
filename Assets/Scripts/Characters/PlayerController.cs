@@ -126,8 +126,6 @@ public class PlayerController : AttackableController
     // Call from the Hit and Death animations
     private void EnableAllActions()
     {
-        Debug.Log("ENABLE ALL ACTIONS");
-
         movementBehaviour.canMove = true;
         interactBehaviour.canInteract = true;
         attackBehaviour.canAttack = true;
