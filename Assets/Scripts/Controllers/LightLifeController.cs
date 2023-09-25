@@ -133,7 +133,6 @@ public class LightLifeController : MonoBehaviour
         Debug.Log("Broken Lightbulb Sequence Starts");
         lightSprite.sprite = lightBroken;
         lifeLight.ForEach(light => light.color = new Color(0, 0, 0));
-        lifeLight.ForEach(light => light.GetComponentInChildren<Light2D>().color = new Color(0, 0, 0));
         lighthouseLights.SetInteger("lifeLevel", 3);
         //Aquí llamar a time controller para mostrar indicador de bombilla rota
         timeController.LightbulbBroken();

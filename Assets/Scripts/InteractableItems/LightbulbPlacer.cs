@@ -7,7 +7,10 @@ public class LightbulbPlacer : InteractiveObjectBehaviour
 
     public LightLifeController lightLifeController;
 
-
+    private void Update()
+    {
+        keyToPress.SetActive(showKey && lightLifeController.damagedLightbulb && lightLifeController.hasLightbulb);
+    }
     public override void OnInteract(InteractBehaviour interactBehaviour)
     {
         if (lightLifeController.damagedLightbulb && lightLifeController.hasLightbulb)
