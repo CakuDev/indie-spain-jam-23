@@ -6,8 +6,10 @@ public class AttackBehaviour : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject attackCollider;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip attackAudio;
 
-    [HideInInspector] public bool canAttack = true;
+    public bool canAttack = true;
 
     public void Attack()
     {
@@ -15,7 +17,7 @@ public class AttackBehaviour : MonoBehaviour
         if (!canAttack) return;
 
         canAttack = false;
-
+        audioSource.PlayOneShot(attackAudio);
         animator.SetBool("attack", true);
     }
 

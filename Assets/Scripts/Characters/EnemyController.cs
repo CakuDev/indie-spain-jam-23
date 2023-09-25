@@ -143,6 +143,7 @@ public class EnemyController : AttackableController
 
             case EnemyStatus.DYING:
                 movementBehaviour.canMove = false;
+                attackBehaviour.canAttack = false;
                 animator.SetBool("death", true);
                 break;
 
@@ -221,7 +222,8 @@ public class EnemyController : AttackableController
     {
         return state == EnemyStatus.CLIMBING
             || state == EnemyStatus.DYING
-            || state == EnemyStatus.PARRIED;
+            || state == EnemyStatus.PARRIED
+            || state == EnemyStatus.ATTACKING;
     }
 
     private bool ShouldAttackPlayer()
@@ -322,6 +324,7 @@ public class EnemyController : AttackableController
     protected override void ManageHit()
     {
         // Block actions
+        StopAllCoroutines();
         movementBehaviour.canMove = false;
         interactBehaviour.canInteract = false;
         attackBehaviour.canAttack = false;
@@ -335,6 +338,7 @@ public class EnemyController : AttackableController
         state = EnemyStatus.DYING;
 
         // Block actions
+        StopAllCoroutines();
         movementBehaviour.canMove = false;
         interactBehaviour.canInteract = false;
         attackBehaviour.canAttack = false;

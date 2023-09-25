@@ -7,6 +7,8 @@ public class ParryBehaviour : MonoBehaviour
     [SerializeField] private Animator animator;
 
     [HideInInspector] public bool canParry = true;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip parryAudio;
 
 
     public void Parry()
@@ -15,7 +17,7 @@ public class ParryBehaviour : MonoBehaviour
         if (!canParry) return;
 
         canParry = false;
-
+        audioSource.PlayOneShot(parryAudio);
         animator.SetBool("parry", true);
     }
 
