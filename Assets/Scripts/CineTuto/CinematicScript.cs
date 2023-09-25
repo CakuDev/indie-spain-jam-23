@@ -10,6 +10,8 @@ public class CinematicScript : MonoBehaviour
     private int index = 0;
     private bool canShowText = false;
 
+    public GameObject continuar;
+
     public void Start()
     {
         StartCoroutine(WaitForAnimationToEnd());
@@ -20,6 +22,7 @@ public class CinematicScript : MonoBehaviour
         yield return new WaitForSeconds(5.5f);
         canShowText = true;
         textosCarta[index].SetActive(true);
+        continuar.SetActive(true);
     }
 
     private void ShowNextText()

@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 3feca698c7f1aa947952e885226405b2
   - enabled: 1
+    path: Assets/Scenes/Cinematica.unity
+    guid: a4c804f4c14239a4b8f0b801ae2dd96e
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: cb7a16848bd00e542bdffffe46e97832
+  - enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
@@ -17,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: cf60880152216d842bb65626eddcf9e0
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 9253602027ac89d4aaf98b2964cbb104
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8d7fe96c700f03e4f928285c36299535, type: 2}
