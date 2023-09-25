@@ -9,9 +9,4 @@ public class GameOverScript : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-
-    public void ChangeSceneMenu(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
 }
