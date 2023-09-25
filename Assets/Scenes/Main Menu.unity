@@ -851,9 +851,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Isa \"Isattorney\" Arrans: Programaci\xF3n\r\nDiego \"CakuDev\" Crespo:
-    Programaci\xF3n\r\nV\xEDktor \"CaketheSnake\" Anta: Pixelart, artista t\xE9cnico,
-    VFX\nNatasha \"Zafirity\" Fari\xF1a: Pixelart, UI\r\nMois\xE9s \"Semoi\" Rodriguez:
-    Sonido\r\nJuan \"Quilloprods\" de Nascimiento: M\xFAsica"
+    Programaci\xF3n\r, artista t\xE9cnico\nV\xEDktor \"CaketheSnake\" Anta: Pixelart,
+    artista t\xE9cnico, VFX\nNatasha \"Zafirity\" Fari\xF1a: Pixelart, UI\r\nMois\xE9s
+    \"Semoi\" Rodriguez: Sonido\r\nJuan \"Quilloprods\" de Nascimento: M\xFAsica"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 10f75dc30c0307642bbaaa6de354b374, type: 2}
   m_sharedMaterial: {fileID: 4390377366929813890, guid: 10f75dc30c0307642bbaaa6de354b374, type: 2}
@@ -2140,9 +2140,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Isa \"Isattorney\" Arrans: Programaci\xF3n\r\nDiego \"CakuDev\" Crespo:
-    Programaci\xF3n\r\nV\xEDktor \"CaketheSnake\" Anta: Pixelart, artista t\xE9cnico,
-    VFX\nNatasha \"Zafirity\" Fari\xF1a: Pixelart, UI\r\nMois\xE9s \"Semoi\" Rodriguez:
-    Sonido\r\nJuan \"Quilloprods\" de Nascimiento: M\xFAsica"
+    Programaci\xF3n\r, artista t\xE9cnico\nV\xEDktor \"CaketheSnake\" Anta: Pixelart,
+    artista t\xE9cnico, VFX\nNatasha \"Zafirity\" Fari\xF1a: Pixelart, UI\r\nMois\xE9s
+    \"Semoi\" Rodriguez: Sonido\r\nJuan \"Quilloprods\" de Nascimento: M\xFAsica"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 10f75dc30c0307642bbaaa6de354b374, type: 2}
   m_sharedMaterial: {fileID: 4390377366929813890, guid: 10f75dc30c0307642bbaaa6de354b374, type: 2}
