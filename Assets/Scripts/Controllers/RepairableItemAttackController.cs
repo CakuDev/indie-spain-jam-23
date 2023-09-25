@@ -33,7 +33,6 @@ public class RepairableItemAttackController : MonoBehaviour
     //Attacks randomly 
     public void Attack()
     {
-        Debug.Log("HACKER ATTACK!");
         List<RepairableItemBehaviour> unrepairingItems = new List<RepairableItemBehaviour>();
 
         //To avoid attacking objects being repaired or are already broken, we exclude them from the selection
