@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5702686187439142781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1137500512937897503}
+  - component: {fileID: 2459698574022694727}
+  - component: {fileID: 1330612707031271424}
+  - component: {fileID: 4576826963247937534}
+  m_Layer: 0
+  m_Name: ItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1137500512937897503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702686187439142781}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2459698574022694727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702686187439142781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 779df9025a62e0f4196b200328485fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _input: {fileID: 11400000, guid: 7ce1338a9dc79f447bb69c311cbdcc3e, type: 2}
+  pauseMenu: {fileID: 0}
+--- !u!114 &1330612707031271424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702686187439142781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef97bbcdb649aa42af3a10f6de25b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repairableItems:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  timeBetweenAttacks: 3
+  attacksPerTime: 1
+  damagePerAttack: 3.13
+  damageVariability: 3.49
+  hackSound: {fileID: 0}
+  timeCounter: 0
+--- !u!114 &4576826963247937534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702686187439142781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7c391c6ee2956428b7f3c932db4db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 1000
+  realLife: 1000
+  timeBetweenUpdates: 0.2
+  timeCounter: 0
+  yellowCof: 0.2
+  redCof: 0.3
+  brokenCof: 1
+  brokenCof2: 0.1
+  lightSprite: {fileID: 0}
+  lightGreen: {fileID: 21300000, guid: 848d79ce21b050646977c7d80ac5592e, type: 3}
+  lightYellow: {fileID: 21300000, guid: 7148bf217b178e846a017f97bb318e6b, type: 3}
+  lightRed: {fileID: 21300000, guid: 97e57a6aa8203cc41a3ba769f1d6e210, type: 3}
+  lightBroken: {fileID: 21300000, guid: 6657fe3f7d19fbc44a77947747d33662, type: 3}

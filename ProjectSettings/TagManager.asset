@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - RapairableItem
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -11,8 +13,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -40,4 +42,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2645183963
+    locked: 0
+  - name: Characters
+    uniqueID: 527639941
+    locked: 0
+  - name: Cliff
+    uniqueID: 4037186789
+    locked: 0
+  - name: UI
+    uniqueID: 628511667
     locked: 0
